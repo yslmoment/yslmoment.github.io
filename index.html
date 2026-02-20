@@ -3,10 +3,684 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>윤석의 홈페이지</title>
+  <title>윤석 - 포트폴리오</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --text-color: #1f2937;
+      --text-light: #6b7280;
+      --bg-color: #ffffff;
+      --bg-secondary: #f9fafb;
+      --border-color: #e5e7eb;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--bg-color);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: var(--primary-color);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background-color: white;
+      color: var(--primary-color);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Section */
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background-color: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .skill-tag {
+      background-color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.25rem;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background-color: var(--bg-secondary);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-content h3 {
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    .project-content p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.85rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Experience Section */
+    .experience-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .experience-item {
+      background-color: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 0.75rem;
+      margin-bottom: 2rem;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .experience-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .experience-company {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .experience-date {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .experience-description {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .experience-description ul {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .experience-description li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: var(--bg-secondary);
+    }
+
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-item a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: white;
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: all 0.3s;
+      border: 1px solid var(--border-color);
+    }
+
+    .social-link:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--text-color);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .social-links {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>안녕하세요, 윤석입니다 👋</h1>
-  <p>GitHub Pages로 만든 첫 사이트!</p>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="logo">YSL</div>
+      <ul class="nav-links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">스킬</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#experience">경력</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>안녕하세요, 윤석입니다 👋</h1>
+    <p>열정적인 개발자로서 세상을 바꾸는 프로젝트를 만들어갑니다</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+      <a href="#contact" class="btn btn-secondary">연락하기</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          안녕하세요! 저는 새로운 기술을 배우고 문제를 해결하는 것을 좋아하는 개발자 윤석입니다.
+        </p>
+        <p>
+          사용자 경험을 최우선으로 생각하며, 깔끔하고 효율적인 코드를 작성하기 위해 노력합니다.
+          항상 배움의 자세로 새로운 도전을 즐기며, 팀과 함께 성장하는 것을 중요하게 생각합니다.
+        </p>
+        <p>
+          여기에서 제 프로젝트와 경험을 확인하실 수 있습니다. 함께 협업하고 싶으시다면 언제든 연락 주세요!
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">제가 사용하는 기술 스택입니다</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>🎨 Frontend</h3>
+          <ul class="skill-list">
+            <li class="skill-tag">HTML/CSS</li>
+            <li class="skill-tag">JavaScript</li>
+            <li class="skill-tag">React</li>
+            <li class="skill-tag">Vue.js</li>
+            <li class="skill-tag">TypeScript</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>⚙️ Backend</h3>
+          <ul class="skill-list">
+            <li class="skill-tag">Node.js</li>
+            <li class="skill-tag">Python</li>
+            <li class="skill-tag">Express</li>
+            <li class="skill-tag">Django</li>
+            <li class="skill-tag">PostgreSQL</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>🛠️ Tools & Others</h3>
+          <ul class="skill-list">
+            <li class="skill-tag">Git</li>
+            <li class="skill-tag">Docker</li>
+            <li class="skill-tag">AWS</li>
+            <li class="skill-tag">Figma</li>
+            <li class="skill-tag">Agile</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">제가 작업한 프로젝트들입니다</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">🚀</div>
+          <div class="project-content">
+            <h3>프로젝트 1</h3>
+            <p>프로젝트에 대한 간단한 설명을 여기에 작성합니다. 어떤 문제를 해결했는지, 어떤 기술을 사용했는지 등을 포함합니다.</p>
+            <div class="project-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+              <a href="#" class="project-link">Demo →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">💡</div>
+          <div class="project-content">
+            <h3>프로젝트 2</h3>
+            <p>프로젝트에 대한 간단한 설명을 여기에 작성합니다. 주요 기능과 성과를 강조합니다.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+              <a href="#" class="project-link">Demo →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🎯</div>
+          <div class="project-content">
+            <h3>프로젝트 3</h3>
+            <p>프로젝트에 대한 간단한 설명을 여기에 작성합니다. 배운 점과 개선 사항을 공유합니다.</p>
+            <div class="project-tags">
+              <span class="tag">Vue.js</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Tailwind</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">GitHub →</a>
+              <a href="#" class="project-link">Demo →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">제 경력 사항입니다</p>
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">소프트웨어 엔지니어</div>
+              <div class="experience-company">회사명 또는 프로젝트명</div>
+            </div>
+            <div class="experience-date">2024.01 - 현재</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>주요 업무나 성과를 작성합니다</li>
+              <li>사용한 기술 스택과 역할을 기술합니다</li>
+              <li>프로젝트의 영향과 결과를 수치로 표현합니다</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">프론트엔드 개발자</div>
+              <div class="experience-company">회사명 또는 프로젝트명</div>
+            </div>
+            <div class="experience-date">2023.01 - 2023.12</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>웹 애플리케이션 개발 및 유지보수</li>
+              <li>사용자 인터페이스 개선으로 전환율 20% 향상</li>
+              <li>React 및 TypeScript를 활용한 컴포넌트 라이브러리 구축</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">인턴 개발자</div>
+              <div class="experience-company">회사명</div>
+            </div>
+            <div class="experience-date">2022.06 - 2022.12</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>개발 프로세스 학습 및 실무 경험</li>
+              <li>버그 수정 및 기능 개선 작업 참여</li>
+              <li>팀 협업 및 코드 리뷰 경험</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-content">
+        <p class="section-subtitle">프로젝트 협업이나 궁금한 점이 있으시다면 언제든 연락주세요!</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            📧 <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </div>
+          <div class="contact-item">
+            📱 <a href="tel:+821012345678">010-1234-5678</a>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/yslmoment" class="social-link" target="_blank">GitHub</a>
+          <a href="#" class="social-link" target="_blank">LinkedIn</a>
+          <a href="#" class="social-link" target="_blank">Blog</a>
+          <a href="#" class="social-link" target="_blank">Twitter</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 윤석. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
