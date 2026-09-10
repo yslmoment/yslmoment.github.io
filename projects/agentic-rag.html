@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trustworthy LLMs: Robustness &amp; Agent Safety — Yunseok Lee 이윤석</title>
-  <meta name="description" content="LLM 위치 취약성 → Agent 간접 프롬프트 주입 → End-to-End 안전성 파이프라인. From positional vulnerability to agent safety." />
+  <title>윤리적인 다국어 LLM 활용을 위한 Context 기반 탈옥 가드레일 구축 — Yunseok Lee 이윤석</title>
+  <meta name="description" content="한국연구재단 우수신진연구: 다국어 데이터·평가, 화이트박스·블랙박스 탈옥 공격 분석, Context 기반 가드레일 연구. SlotGCG와 관련 LLM Agent 안전성 연구 소개." />
   <script>
     (function () {
       try {
@@ -34,44 +34,83 @@
     <header class="project-header">
       <p class="project-meta">
         <span class="tag">PROJECT</span>
-        2025 – <span class="ko">현재</span><span class="en">Present</span>
+        2025.09 – 2027.08 <span class="ko">(종료 예정)</span><span class="en">(planned end)</span>
         · DAMILAB
       </p>
       <h1 class="project-title">
-        <span class="ko">신뢰 가능한 LLM 안전성 연구 라인</span>
-        <span class="en">Trustworthy LLMs: Robustness &amp; Agent Safety</span>
+        <span class="ko">윤리적인 다국어 LLM 활용을 위한 Context 기반 탈옥 가드레일 구축</span>
+        <span class="en">Context-Based Jailbreak Guardrails for Ethical Multilingual LLM Use</span>
       </h1>
-      <p class="project-subtitle ko">위치 취약성 분석에서 시작하여 Agent 안전성, 그리고 End-to-End 안전성 파이프라인으로 이어지는 3단계 연구.</p>
-      <p class="project-subtitle en">A research line spanning positional vulnerability analysis, agent-level safety, and an end-to-end LLM safety pipeline.</p>
+      <p class="project-subtitle ko">다국어 환경과 프롬프트 맥락을 고려해 LLM의 취약성을 평가하고, 공격 분석을 가드레일 설계로 연결하는 세부 연구.</p>
+      <p class="project-subtitle en">A research study within the project below, connecting multilingual, context-aware LLM safety evaluation and jailbreak analysis to guardrail development.</p>
+      <dl class="project-facts">
+        <div>
+          <dt><span class="ko">상위 과제</span><span class="en">Parent project</span></dt>
+          <dd><span class="ko">다국어 환경에서 거대언어모델의 보안을 위한 탈옥 및 가드레일 프레임워크 개발</span><span class="en">Development of a Jailbreak and Guardrail Framework for Securing Large Language Models in Multilingual Environments</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">주관</span><span class="en">Funding program</span></dt>
+          <dd><span class="ko">한국연구재단 우수신진연구 (과학기술정보통신부)</span><span class="en">National Research Foundation of Korea, Excellent Young Researchers Program (Ministry of Science and ICT)</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">역할</span><span class="en">Role</span></dt>
+          <dd><span class="ko">참여연구원</span><span class="en">Participating researcher</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">참여 기간</span><span class="en">Participation</span></dt>
+          <dd>2025.09 – 2027.08 <span class="ko">(종료 예정)</span><span class="en">(planned end)</span></dd>
+        </div>
+      </dl>
     </header>
 
     <section>
-      <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
+      <h2><span class="ko">문제와 연구 목표</span><span class="en">Problem and Research Goals</span></h2>
       <p class="ko">
-        DAMILAB에서 진행 중인 LLM 안전성 연구 라인입니다. LLM의 환각·오류·jailbreak가
-        모두 <strong>맥락(context)</strong>에 강하게 의존한다는 관찰에서 출발하여,
-        세 단계로 안전성을 분석·강화하는 것을 목표로 합니다.
+        LLM의 활용이 확대되면서 유해 응답, 보안 악용, 탈옥 공격에 대한 대응이 중요해지고 있습니다.
+        기존 안전성 연구는 영어 중심의 데이터와 단일 응답 기준의 평가에 의존하는 경우가 많아,
+        다국어 환경과 <strong>맥락(Context)에 따라 달라지는 공격</strong>을 충분히 다루기 어렵습니다.
+        이 과제는 다국어 유해·무해 데이터와 맥락 기반 평가 체계를 마련하고,
+        화이트박스·블랙박스 공격 연구를 통해 확인한 취약성을 가드레일 개발에 반영하는 것을 목표로 합니다.
       </p>
       <p class="en">
-        An ongoing LLM safety research line at DAMILAB. Starting from the observation that LLM
-        failures — hallucination, errors, and jailbreaks — are all heavily context-dependent,
-        we analyze and strengthen LLM safety in three sequential phases.
+        Wider LLM adoption raises concerns about harmful responses, misuse, and jailbreak attacks.
+        Safety research that relies primarily on English data and single-response evaluation can miss
+        vulnerabilities that depend on language and context. The project aims to build multilingual
+        harmful and benign datasets, design context-aware evaluation, and use findings from white-box
+        and black-box attack research to inform guardrail development.
       </p>
     </section>
 
     <section>
-      <h2><span class="ko">3단계 연구 구조</span><span class="en">Three Research Phases</span></h2>
+      <h2><span class="ko">과제의 연차별 계획</span><span class="en">Project Plan by Year</span></h2>
+      <p class="ko">데이터와 평가 체계 구축에서 공격 분석, 가드레일 개발로 이어지는 연차별 연구 계획입니다.</p>
+      <p class="en">The annual plan progresses from datasets and evaluation to attack analysis and guardrail development.</p>
+      <ol class="ko">
+        <li><strong>1차년도 — 다국어 데이터셋 및 평가 프레임워크.</strong> 안전한 LLM을 위한 다국어 유해·무해 데이터셋을 구축하고, 맥락을 고려한 응답 평가 체계를 개발합니다.</li>
+        <li><strong>2차년도 — 화이트박스·블랙박스 공격 방법론.</strong> 모델 내부 정보 접근 여부에 따른 탈옥 공격을 연구하고, 기존 방식이 놓치는 취약성을 분석합니다.</li>
+        <li><strong>3차년도 — 최적화된 가드레일 프레임워크.</strong> 데이터·평가·공격 연구 결과를 연결하여 다국어 LLM을 위한 가드레일을 개발합니다.</li>
+      </ol>
+      <ol class="en">
+        <li><strong>Year 1 — Multilingual datasets and evaluation.</strong> Build multilingual harmful and benign datasets and develop a framework for evaluating responses in context.</li>
+        <li><strong>Year 2 — White-box and black-box attack methods.</strong> Study jailbreak methods under different levels of model access and analyze vulnerabilities overlooked by existing approaches.</li>
+        <li><strong>Year 3 — Optimized guardrail framework.</strong> Connect the dataset, evaluation, and attack findings to develop guardrails for multilingual LLMs.</li>
+      </ol>
+    </section>
 
-      <p class="ko"><strong>Phase 1 — LLM의 위치 취약성 분석.</strong>
-        프롬프트 내에서 adversarial token이 어디에 삽입되느냐가 jailbreak 성공률을 결정한다는
-        가설을 입증하고, Vulnerable Slot Score(VSS)를 도입한 SlotGCG 공격을 제안.
-        <em>(ICLR 2026 게재)</em>
+    <section>
+      <h2><span class="ko">수행 연구: 프롬프트 위치 취약성 분석</span><span class="en">Research: Positional Vulnerability in Prompts</span></h2>
+      <p class="ko">
+        기존 GCG 기반 탈옥 공격은 주로 프롬프트 끝(suffix)에 adversarial token을 삽입합니다.
+        <strong>SlotGCG</strong> 연구는 프롬프트 내부의 다른 삽입 위치에도 취약성이 있다는 점에 주목했습니다.
+        각 위치의 취약도를 정량화하는 <strong>Vulnerable Slot Score(VSS)</strong>를 정의하고,
+        취약한 위치에 공격 토큰을 분산 배치한 뒤 GCG 기반 최적화를 수행하는 방법을 제안했습니다.
       </p>
-      <p class="en"><strong>Phase 1 — Positional vulnerability in LLMs.</strong>
-        We show that the position of an inserted adversarial token within a prompt is itself a
-        decisive factor in jailbreak success, introduce the Vulnerable Slot Score (VSS), and
-        propose SlotGCG, an attack-agnostic position-search mechanism.
-        <em>(Accepted to ICLR 2026)</em>
+      <p class="en">
+        Existing GCG-based attacks typically place adversarial tokens at the end of a prompt.
+        <strong>SlotGCG</strong> investigates vulnerabilities at other insertion positions.
+        The study introduces the <strong>Vulnerable Slot Score (VSS)</strong> to quantify positional
+        vulnerability, distributes adversarial tokens across vulnerable slots, and then applies
+        GCG-based optimization.
       </p>
 
       <figure class="project-figure">
@@ -81,53 +120,65 @@
 
       <figure class="project-figure">
         <img src="../images/projects/slotgcg-findings.png" alt="SlotGCG empirical findings" loading="lazy" />
-        <figcaption><span class="ko">실증 분석 — 최적 slot은 prompt의 suffix가 아니라 prompt 내부 위치에 분포한다 (50개 prompt 누적 빈도).</span><span class="en">Empirical finding — optimal slots are distributed inside the prompt rather than at the suffix (cumulative frequency over 50 prompts).</span></figcaption>
+        <figcaption><span class="ko">위치별 분석 — 그림의 50개 프롬프트 실험에서 최적 slot은 suffix보다 프롬프트 내부에 분포한다.</span><span class="en">Positional analysis — in the 50-prompt experiment shown, optimal slots occur inside the prompt rather than at the suffix.</span></figcaption>
       </figure>
-
-      <p class="ko"><strong>Phase 2 — LLM Agent에 대한 안전성 분석.</strong>
-        도구(tool)·API·외부 검색을 사용하는 LLM agent 환경에서 발생하는
-        <em>Indirect Prompt Injection (IPI)</em>을 분석. 외부 데이터에 숨겨진 명령이
-        agent의 추론·행동을 어떻게 우회시키는지 체계적으로 평가.
-        <em>(ICML 2026 FAGEN Workshop 게재)</em>
-        또한 공격 성공을 최종 응답의 노출 여부에 따라 구분하는 CSR·OSR 지표와 ICoA 공격을 제안하고 AgentDojo에서 검증.
-        <em>(EMNLP 2026 Main Conference)</em>
+      <p class="ko">
+        <strong>결과:</strong> 실험에서는 기존 방법 대비 평균 공격 성공률(ASR) 14% 향상,
+        방어 기법 적용 환경에서 최대 42% 높은 ASR과 더 적은 최적화 단계에서의 수렴을 확인했습니다.
+        논문은 <strong>ICLR 2026</strong>에 채택되었습니다.
+        다국어 가드레일 프레임워크 개발은 과제의 후속 연구 목표입니다.
       </p>
-      <p class="en"><strong>Phase 2 — Agent-level safety.</strong>
-        We study <em>Indirect Prompt Injection (IPI)</em> in tool-using LLM agents, evaluating
-        how malicious instructions hidden in external data can subvert an agent's reasoning and
-        actions across blackbox APIs and Llama 3.3-70B.
-        <em>(Accepted to ICML 2026 FAGEN Workshop)</em>
-        We also distinguish covert and overt successes using CSR and OSR, propose ICoA, and evaluate it on AgentDojo.
-        <em>(EMNLP 2026 Main Conference)</em>
-      </p>
-
-      <figure class="project-figure">
-        <img src="../images/projects/ipi-overview.png" alt="Indirect Prompt Injection threat model" loading="lazy" />
-        <figcaption><span class="ko">IPI 위협 모델 — 공격자가 외부 데이터에 명령을 심으면, agent가 그 데이터를 retrieve하는 순간 명령이 실행되어 도구/API가 악용될 수 있다.</span><span class="en">IPI threat model — when an attacker plants instructions in external data, the agent's retrieval implicitly executes them, potentially weaponizing its tools and APIs.</span></figcaption>
-      </figure>
-
-      <p class="ko"><strong>Phase 3 — End-to-End LLM 안전성 파이프라인.</strong>
-        Phase 1·2의 발견을 통합하여, 단발성 방어가 아닌 입력→추론→행동까지를 연속적으로
-        보호하는 End-to-End safety pipeline 설계. <em>(예정)</em>
-      </p>
-      <p class="en"><strong>Phase 3 — End-to-end LLM safety pipeline.</strong>
-        Integrating the insights from Phases 1 and 2 into a continuous safety pipeline that
-        protects the full chain — input, reasoning, and action — rather than relying on
-        point defenses. <em>(planned)</em>
+      <p class="en">
+        <strong>Results:</strong> Experiments show a 14% average improvement in attack success rate (ASR),
+        up to 42% higher ASR under defenses, and convergence with fewer optimization steps compared
+        with existing methods. The paper was accepted to <strong>ICLR 2026</strong>.
+        The broader multilingual guardrail framework remains a subsequent project objective.
       </p>
     </section>
 
     <section>
-      <h2><span class="ko">주요 결과</span><span class="en">Key Results</span></h2>
+      <h2><span class="ko">개인 기여</span><span class="en">My Contributions</span></h2>
+      <p class="ko">
+        과제에 <strong>참여연구원</strong>으로 참여하며 LLM 안전성 평가, 공격 분석, 방어 연구를 경험했습니다.
+        SlotGCG에서는 공동저자로서 <strong>VSS 기반 평가·분석 및 논문 제출 과정 지원</strong>에 기여했습니다.
+        이 경험을 바탕으로 단일 응답뿐 아니라 도구 사용과 행동 실행까지 포함하는
+        <strong>안전한 LLM Agent</strong>를 개인 연구 주제로 확장했습니다.
+      </p>
+      <p class="en">
+        As a <strong>participating researcher</strong>, I gained experience across LLM safety evaluation,
+        attack analysis, and defense research. As a SlotGCG co-author, I contributed to
+        <strong>VSS-based evaluation and analysis and supported the paper submission process</strong>.
+        This work informed my individual research direction on safe LLM agents, extending the focus
+        from generated responses to tool use and action execution.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">관련 연구 확장: 도구 사용 Agent의 안전성</span><span class="en">Related Research Extension: Tool-Using Agent Safety</span></h2>
+      <p class="ko">
+        후속 개인 연구에서는 <strong>간접 프롬프트 주입(Indirect Prompt Injection, IPI)</strong>을 다룹니다.
+        외부 문서나 검색 결과의 악의적 지시를 agent가 신뢰할 경우, 최종 답변뿐 아니라 도구·API를 통한 행동까지
+        공격자의 의도에 영향을 받을 수 있습니다. 공격 방어와 정상적인 작업 수행 능력을 함께 평가하는 것이 핵심 과제입니다.
+        아래 논문은 이 문제의식에서 이어진 관련 연구이며, 과제의 연차별 계획과 구분하여 소개합니다.
+      </p>
+      <p class="en">
+        My follow-up individual research focuses on <strong>Indirect Prompt Injection (IPI)</strong>.
+        If an agent treats malicious instructions in external documents or search results
+        as authoritative, those instructions can influence its tool and API actions as well as its final response.
+        A key challenge is evaluating defenses alongside legitimate task performance.
+        The publications below extend this research direction and are presented separately from the funded project's annual plan.
+      </p>
+      <figure class="project-figure">
+        <img src="../images/projects/ipi-overview.png" alt="Indirect Prompt Injection threat model" loading="lazy" />
+        <figcaption><span class="ko">IPI 위협 모델 — 외부 데이터에 삽입된 악의적 지시를 agent가 따를 경우, 도구·API를 통해 원치 않는 행동이 발생할 수 있다.</span><span class="en">IPI threat model — if an agent follows malicious instructions embedded in external data, its tools and APIs may be used for unwanted actions.</span></figcaption>
+      </figure>
       <ul class="ko">
-        <li><strong>SlotGCG (Phase 1):</strong> GCG 기반 공격 대비 <strong>ASR +14%</strong>, defense 적용 시 <strong>+42%</strong>, 약 200ms preprocessing만으로 모든 optimization-based 공격에 plug-in 가능</li>
-        <li><strong>IPI 연구 (Phase 2):</strong> tool-using LLM agent에서 covert IPI의 효과·전이성 정량화, agent 환경의 새로운 안전성 평가 프레임 제시</li>
-        <li><strong>ICoA (Phase 2):</strong> 은밀한 공격 평가를 위한 CSR·OSR 지표 제안. AgentDojo의 네 대상 모델에서 가장 강한 기준선 대비 <strong>CSR 3.79–12.01%p 향상</strong></li>
+        <li><strong>ICML 2026 FAGEN Workshop — 1저자:</strong> 도구를 사용하는 LLM agent를 대상으로 사용자가 알아차리기 어려운 은밀한 간접 프롬프트 주입을 연구했습니다.</li>
+        <li><strong>EMNLP 2026 Main Conference — 공동 1저자:</strong> 공격 성공이 최종 응답에 드러나는지를 구분하는 CSR·OSR 지표와 ICoA 공격을 제안했습니다. AgentDojo의 네 대상 모델에서 가장 강한 기준선 대비 <strong>CSR 3.79–12.01%p 향상</strong>을 보고했습니다.</li>
       </ul>
       <ul class="en">
-        <li><strong>SlotGCG (Phase 1):</strong> <strong>+14% ASR</strong> over GCG, <strong>+42% ASR</strong> under defenses, with only ~200 ms of preprocessing — plug-in compatible with any optimization-based attack</li>
-        <li><strong>IPI study (Phase 2):</strong> Quantified effectiveness and transferability of covert IPI on tool-using LLM agents; proposed a new safety evaluation frame for the agent setting</li>
-        <li><strong>ICoA (Phase 2):</strong> Introduced CSR and OSR for covert attack evaluation; improved <strong>CSR by 3.79–12.01 percentage points</strong> over the strongest baseline across four target models on AgentDojo</li>
+        <li><strong>ICML 2026 FAGEN Workshop — first author:</strong> Studied covert indirect prompt injection on tool-using LLM agents, focusing on attacks that can be difficult for users to notice.</li>
+        <li><strong>EMNLP 2026 Main Conference — co-first author:</strong> Introduced CSR and OSR to distinguish covert and overt attack successes, and proposed ICoA. The study reports a <strong>3.79–12.01 percentage-point CSR improvement</strong> over the strongest baseline across four target models on AgentDojo.</li>
       </ul>
     </section>
 
@@ -169,21 +220,6 @@
           </p>
         </div>
       </div>
-    </section>
-
-    <section>
-      <h2><span class="ko">역할</span><span class="en">My Role</span></h2>
-      <p class="ko">
-        Phase 2의 ICML FAGEN Workshop 논문(IPI)에서 1저자로서 공격 시나리오 설계, 실험 파이프라인 구축, 결과 분석을 주도.
-        EMNLP 2026 논문(ICoA)에 공동 1저자로 참여.
-        Phase 1(SlotGCG)에서는 공저자로 VSS 검증과 분석에 기여.
-      </p>
-      <p class="en">
-        First author on the Phase 2 ICML FAGEN Workshop paper (IPI): designed attack scenarios, built the experimental
-        pipeline, and led the analysis. Co-first author on the EMNLP 2026 paper (ICoA).
-        Co-author on Phase 1 (SlotGCG), contributing to VSS
-        validation and analysis.
-      </p>
     </section>
 
     <section>

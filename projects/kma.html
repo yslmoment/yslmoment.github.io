@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KMA Weather AI Project — Yunseok Lee 이윤석</title>
-  <meta name="description" content="기상위성 GK2A 지표면 온도(LST) 고해상화. Guided Depth Super-Resolution for KMA's GK2A satellite imagery." />
+  <title>인공지능 기반 표면온도 초해상화 기술 개발 — Yunseok Lee 이윤석</title>
+  <meta name="description" content="인공지능 기반 표면온도(지표면, 해수면) 초해상화 기술 개발. GK2A·GK2B 기반 2km→250m 초해상화, 지상 관측 차이학습 보정, 구름 결측치 보간 연구." />
   <script>
     (function () {
       try {
@@ -34,47 +34,74 @@
     <header class="project-header">
       <p class="project-meta">
         <span class="tag">PROJECT</span>
-        2025.04 – <span class="ko">현재</span><span class="en">Present</span>
-        · DAMILAB &times; <span class="ko">기상청 (KMA)</span><span class="en">Korea Meteorological Administration (KMA)</span>
+        2025.04 – 2027.08 <span class="ko">(종료 예정)</span><span class="en">(expected)</span>
+        · <span class="ko">참여연구원</span><span class="en">Participating Researcher</span>
       </p>
       <h1 class="project-title">
-        <span class="ko">기상위성 GK2A 지표면 온도(LST) 고해상화</span>
-        <span class="en">LST Super-Resolution from KMA's GK2A Satellite</span>
+        <span class="ko">인공지능 기반 표면온도(지표면, 해수면) 초해상화 기술 개발</span>
+        <span class="en">Development of AI-Based Super-Resolution for Land and Sea Surface Temperature</span>
       </h1>
-      <p class="project-subtitle ko">기상청과의 협업 과제. 정지궤도 위성 GK2A의 2km 해상도 지표면 온도(LST)를 250m로 다운스케일링하는 Guided Depth Super-Resolution 연구.</p>
-      <p class="project-subtitle en">A KMA collaboration. Downscaling Land Surface Temperature (LST) from the geostationary GK2A satellite from 2km to 250m via Guided Depth Super-Resolution.</p>
+      <p class="project-subtitle ko">위성 표면온도를 2km에서 250m로 초해상화하고, 지상 관측과의 차이를 보정하며 구름으로 인한 결측치를 복원하는 다년간 연구 과제.</p>
+      <p class="project-subtitle en">A multi-year project combining 2km-to-250m satellite surface-temperature super-resolution, calibration against ground observations, and interpolation of cloud-induced missing values.</p>
     </header>
 
     <section>
       <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
+      <dl class="project-facts">
+        <div>
+          <dt><span class="ko">상위 과제</span><span class="en">Parent project</span></dt>
+          <dd><span class="ko">위성기반 극한기후·기후변화 감시 기술개발</span><span class="en">Development of Satellite-Based Monitoring Technologies for Climate Extremes and Climate Change</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">주관</span><span class="en">Agency</span></dt>
+          <dd><span class="ko">한국기상산업기술원(기상청)</span><span class="en">Korea Meteorological Institute (KMI), under the Korea Meteorological Administration (KMA)</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">역할</span><span class="en">Role</span></dt>
+          <dd><span class="ko">참여연구원 · 동국대학교 DAMILAB</span><span class="en">Participating Researcher · DAMILAB, Dongguk University</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">참여 기간</span><span class="en">Participation</span></dt>
+          <dd>2025.04 – 2027.08 <span class="ko">(종료 예정)</span><span class="en">(expected completion)</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">핵심 기술</span><span class="en">Methods</span></dt>
+          <dd>GDSR · DCTRRDBNet · Difference Learning · LightGBM</dd>
+        </div>
+      </dl>
       <p class="ko">
-        기상청(KMA)과 협업하는 다년간 과제로, <strong>정지궤도 기상위성 GK2A</strong>로부터 추출한
-        지표면 온도(Land Surface Temperature, LST)를 250m 해상도로 고해상화하는 것이 목표입니다.
-        GK2A의 native 해상도(2km)와 농업·도시 모니터링 등 응용에 필요한 해상도(250m) 사이의
-        domain gap을 ML 기반 super-resolution으로 좁히는 연구입니다.
+        지표면 온도(LST)와 해수면 온도(SST)의 공간 해상도와 관측 정확도를 높여 정밀 기후 분석과
+        시계열 위성 데이터 활용을 지원하는 연구입니다. 저해상도 <strong>GK2A 표면온도</strong>와
+        고해상도 <strong>GK2B RGB 영상</strong>을 함께 사용하며, 초해상화 결과와 지상 관측 간의
+        차이를 학습하는 보정 모델을 결합합니다. 구름이 없는 조건에서 시작해 구름 결측치 보간,
+        전천후(All-Sky) 최적화 프레임워크로 연구 범위를 확장합니다.
       </p>
       <p class="en">
-        A multi-year collaboration with KMA aiming to super-resolve Land Surface Temperature (LST)
-        retrieved from <strong>GK2A</strong>, KMA's geostationary weather satellite, from its native
-        2km resolution down to 250m — closing the gap between sensor resolution and the resolution
-        required by downstream applications such as agriculture and urban monitoring.
+        This project improves the spatial resolution and observational accuracy of land surface
+        temperature (LST) and sea surface temperature (SST) for detailed climate analysis and satellite
+        time-series applications. It combines low-resolution <strong>GK2A surface-temperature data</strong>
+        with high-resolution <strong>GK2B RGB imagery</strong>, then learns corrections against ground
+        observations. The research progresses from clear-sky super-resolution to cloud-gap interpolation
+        and an all-sky optimization framework.
       </p>
     </section>
 
     <section>
       <h2><span class="ko">동기 및 문제 정의</span><span class="en">Background &amp; Motivation</span></h2>
       <p class="ko">
-        GK2A는 한반도 전역을 관측하는 정지궤도 위성이지만 LST 산출물의 해상도(약 2km)는
-        세밀한 분석에 한계가 있습니다. 자연 이미지 SR 기법을 그대로 적용하면 위성 영상 특유의
-        sensor noise, 대기 효과, 그리고 GK2A와 가이드 위성(GK2B) 사이의 spectral mismatch를
-        제대로 다루지 못해 정확도가 떨어집니다.
+        위성 기반 표면온도 데이터에는 <strong>km 수준의 낮은 공간 해상도</strong>와
+        <strong>지상 관측과의 도메인 차이</strong>라는 두 가지 문제가 있습니다. 기존 방법은
+        경계와 표면의 세부 구조를 나타내는 고주파 정보를 충분히 복원하지 못하고,
+        구름으로 가려진 영역의 결측치도 보간하지 못했습니다. 따라서 공간적 세부 구조의 복원,
+        지상 관측에 맞춘 온도 보정, 시간·공간 정보를 이용한 결측치 복원을 함께 다뤄야 합니다.
       </p>
       <p class="en">
-        While GK2A continuously observes the Korean Peninsula, its LST product at ~2km resolution
-        limits fine-grained downstream analysis. Off-the-shelf super-resolution methods designed
-        for natural images fail to handle satellite-specific characteristics — sensor noise,
-        atmospheric effects, and the spectral mismatch between GK2A and the higher-resolution
-        guide sensor (GK2B).
+        Satellite surface-temperature data face two central limitations: <strong>kilometer-scale
+        spatial resolution</strong> and a <strong>domain gap from ground observations</strong>.
+        Existing methods do not adequately recover high-frequency details such as boundaries and
+        surface structure, or interpolate values missing under clouds. The task therefore requires
+        spatial-detail recovery, temperature calibration against ground measurements, and gap
+        reconstruction using temporal and spatial context.
       </p>
     </section>
 
@@ -82,85 +109,80 @@
       <h2><span class="ko">접근 방법</span><span class="en">Approach</span></h2>
 
       <figure class="project-figure">
-        <img src="../images/projects/kma-gdsr-architecture.jpeg" alt="GDSR architecture (DCTRRDBNet)" loading="lazy" />
-        <figcaption><span class="ko">1차년도 초해상화 모델 — Guided Depth Super-Resolution(GDSR), DCTRRDBNet</span><span class="en">Year-1 super-resolution model — Guided Depth Super-Resolution (GDSR), DCTRRDBNet</span></figcaption>
+        <img src="../images/projects/kma-gdsr-architecture.jpeg" alt="Year-1 GDSR super-resolution and LightGBM ground-observation calibration workflow" loading="lazy" />
+        <figcaption><span class="ko">1차년도 초해상화·지상 관측 보정 구조. 그림에 표시된 목표 기준: LST RMSE ≤ 3K, SST RMSE ≤ 2K.</span><span class="en">Year-1 super-resolution and ground-observation calibration workflow. Design targets shown in the figure: LST RMSE ≤ 3K and SST RMSE ≤ 2K.</span></figcaption>
       </figure>
 
       <p class="ko">
-        Guided Depth Super-Resolution (GDSR) 관점에서 문제를 재정의하고, 저해상도 GK2A를
-        고해상도 RGB 가이드 영상(GK2B)으로 안내하는 구조로 설계했습니다.
+        <strong>Guided Depth Super-Resolution(GDSR)</strong> 기반 딥러닝 모델을 설계해
+        GK2B의 고해상도 RGB 정보를 GK2A 표면온도 복원의 가이드로 사용합니다.
+        온도 보정에는 초해상화 결과와 지상 관측 사이의 차이를 학습하는 별도 모델을 적용합니다.
       </p>
       <ul class="ko">
-        <li><strong>아키텍처:</strong> <strong>DCTRRDBNet</strong> — DCTNet 기반 + Residual-in-Residual Dense Block + Guided Edge Spatial Attention</li>
-        <li><strong>센서 간 차이 보정:</strong> Difference Learning으로 spectral mismatch 학습</li>
-        <li><strong>후처리:</strong> LightGBM 기반 정확도 향상</li>
-        <li><strong>업샘플 경로:</strong> GK2A(32×32) → ×4(128×128) → ×8(256×256) ≈ GK2B 해상도</li>
+        <li><strong>고주파 정보 복원:</strong> DCTNet에 Residual-in-Residual Dense Block을 적용한 <strong>DCTRRDBNet</strong>으로 경계와 표면의 세부 구조를 복원합니다.</li>
+        <li><strong>지상 관측 기반 차이학습:</strong> 관측 지점에 해당하는 위성 픽셀을 추출하고, <strong>LightGBM 기반 Difference Learning</strong>으로 초해상화된 온도와 지상 관측 간의 차이를 보정합니다. 이 과정에서 시·공간 불일치를 다룹니다.</li>
+        <li><strong>구름 결측치 보간:</strong> 결측 위치와 시·공간 인접 정보를 활용하는 보간 알고리즘을 구현 중이며, 관련 보간 방법론 조사와 딥러닝 모델 검토를 진행합니다.</li>
       </ul>
       <p class="en">
-        We reframed the task as Guided Depth Super-Resolution (GDSR), using the high-res RGB
-        imagery from GK2B to guide the upsampling of low-res GK2A LST.
+        A <strong>Guided Depth Super-Resolution (GDSR)</strong> model uses high-resolution GK2B
+        RGB information to guide the reconstruction of GK2A surface temperature. A separate model
+        calibrates the super-resolved temperatures by learning their differences from ground observations.
       </p>
       <ul class="en">
-        <li><strong>Architecture:</strong> <strong>DCTRRDBNet</strong> — DCTNet-based with Residual-in-Residual Dense Blocks and a Guided Edge Spatial Attention module</li>
-        <li><strong>Cross-sensor calibration:</strong> Difference Learning to bridge spectral mismatch</li>
-        <li><strong>Post-processing:</strong> LightGBM refinement for further accuracy</li>
-        <li><strong>Upsampling path:</strong> GK2A (32×32) → ×4 (128×128) → ×8 (256×256), matching GK2B</li>
-      </ul>
-      <p class="ko">
-        과제는 3개 phase로 구성됩니다:
-      </p>
-      <ul class="ko">
-        <li><strong>Phase 1 — Clear-Sky 다운스케일링.</strong> 구름이 없는 조건에서 LST 고해상화. <em>(완료)</em></li>
-        <li><strong>Phase 2 — Cloud-Sky 처리.</strong> 구름의 영향을 받는 상황에서의 LST 고해상화. <em>(진행 중)</em></li>
-        <li><strong>Phase 3 — All-Sky 통합 모델.</strong> Clear/Cloud를 통합하는 단일 모델. <em>(예정)</em></li>
-      </ul>
-      <p class="en">
-        The work is organized in three phases:
-      </p>
-      <ul class="en">
-        <li><strong>Phase 1 — Clear-Sky downscaling.</strong> LST super-resolution under cloud-free conditions. <em>(completed)</em></li>
-        <li><strong>Phase 2 — Cloud-Sky handling.</strong> LST super-resolution under cloud-affected conditions. <em>(in progress)</em></li>
-        <li><strong>Phase 3 — All-Sky unified model.</strong> A single model spanning Clear and Cloud regimes. <em>(planned)</em></li>
+        <li><strong>High-frequency detail recovery:</strong> <strong>DCTRRDBNet</strong> augments DCTNet with Residual-in-Residual Dense Blocks to reconstruct boundaries and fine surface structure.</li>
+        <li><strong>Ground-observation difference learning:</strong> Satellite pixels are extracted at observation locations, and <strong>LightGBM-based Difference Learning</strong> corrects differences between super-resolved temperatures and ground measurements while addressing spatial and temporal misalignment.</li>
+        <li><strong>Cloud-gap interpolation:</strong> Algorithms using missing-value locations and neighboring spatial and temporal information are under implementation, alongside a review of interpolation methods and deep-learning models.</li>
       </ul>
     </section>
 
     <section>
-      <h2><span class="ko">진행 상황 및 성과</span><span class="en">Status &amp; Results</span></h2>
+      <h2><span class="ko">담당 역할 및 기여</span><span class="en">My Role &amp; Contributions</span></h2>
+      <p class="ko">참여연구원으로서 대규모 위성·지상 관측 데이터 처리와 모델 설계에 참여하고, 관측 데이터 간 차이를 학습하는 보정 모델 설계 아이디어를 제안했습니다.</p>
+      <p class="en">As a participating researcher, I contributed to large-scale satellite and ground-observation data processing and model design, and proposed the difference-learning correction model.</p>
+      <ul class="ko">
+        <li><strong>대규모 데이터 전처리:</strong> 40만 건 이상의 위성·지상 관측 데이터를 전처리하고, 딥러닝 기반 시계열·공간 데이터 처리에 참여했습니다.</li>
+        <li><strong>차이학습 모델 설계:</strong> 위성 초해상화 결과와 지상 관측의 차이를 보정하는 Difference Learning 아이디어를 제안하고, 픽셀 단위 지점 추출과 LightGBM 기반 모델 구현에 참여했습니다.</li>
+        <li><strong>결측치 복원 연구:</strong> 구름 결측치 보간 방법을 조사하고, 시·공간 인접 정보를 활용하는 기초 모델 구현을 진행하고 있습니다.</li>
+      </ul>
+      <ul class="en">
+        <li><strong>Large-scale preprocessing:</strong> Preprocessed more than 400,000 satellite and ground-observation records and contributed to deep-learning-based temporal and spatial data processing.</li>
+        <li><strong>Difference-learning model design:</strong> Proposed learning corrections between super-resolved satellite temperatures and ground observations, and contributed to observation-site pixel extraction and the LightGBM implementation.</li>
+        <li><strong>Missing-value reconstruction:</strong> Investigating cloud-gap interpolation methods and implementing a baseline model using neighboring spatial and temporal information.</li>
+      </ul>
+    </section>
 
+    <section>
+      <h2><span class="ko">주요 성과</span><span class="en">Results</span></h2>
+      <ul class="ko">
+        <li><strong>해상도 개선:</strong> 표면온도 데이터를 <strong>2km → 250m</strong>로 초해상화했습니다.</li>
+        <li><strong>1차년도 정량 목표 달성:</strong> 지상 관측 데이터 기준 <strong>RMSE 3K 이하</strong>를 달성했습니다.</li>
+        <li><strong>세부 구조 복원:</strong> ×4·×8 복원 결과에서 원본 GK2A보다 호수와 해안 경계의 세부 구조가 구체적으로 표현되고, GK2B 가이드의 공간 정보가 반영됩니다.</li>
+        <li><strong>후속 연구:</strong> 2차년도 목표인 구름 결측치 보간의 기초 모델을 구현 중입니다.</li>
+      </ul>
+      <ul class="en">
+        <li><strong>Resolution improvement:</strong> Super-resolved surface-temperature data from <strong>2km to 250m</strong>.</li>
+        <li><strong>Year-1 quantitative target met:</strong> Achieved <strong>RMSE ≤ 3K</strong> against ground-observation data.</li>
+        <li><strong>Spatial-detail recovery:</strong> The ×4 and ×8 results show more detailed lake and coastal boundaries than the original GK2A input, reflecting spatial information from the GK2B guide.</li>
+        <li><strong>Follow-up work:</strong> A baseline for the year-2 cloud-gap interpolation objective is under implementation.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="ko">연차별 계획 및 진행 상황</span><span class="en">Yearly Plan &amp; Progress</span></h2>
+      <ul class="ko">
+        <li><strong>1차년도 · Clear-Sky:</strong> 구름이 없는 조건의 표면온도 초해상화와 지상 관측 보정. 해상도 개선 및 RMSE 목표 달성.</li>
+        <li><strong>2차년도 · Cloud-Sky:</strong> 구름이 있는 조건의 표면온도 초해상화와 결측치 보간. 기초 모델 구현 진행 중.</li>
+        <li><strong>3차년도 · All-Sky:</strong> 전천후 조건의 표면온도 초해상화 및 최적화 프레임워크 개발 예정.</li>
+      </ul>
+      <ul class="en">
+        <li><strong>Year 1 · Clear-Sky:</strong> Surface-temperature super-resolution and calibration under cloud-free conditions. Resolution and RMSE objectives achieved.</li>
+        <li><strong>Year 2 · Cloud-Sky:</strong> Surface-temperature super-resolution and gap interpolation under cloudy conditions. Baseline implementation in progress.</li>
+        <li><strong>Year 3 · All-Sky:</strong> Planned development of surface-temperature super-resolution and an optimization framework across sky conditions.</li>
+      </ul>
       <figure class="project-figure">
-        <img src="../images/projects/kma-pipeline.jpeg" alt="KMA project full pipeline" loading="lazy" />
-        <figcaption><span class="ko">전체 파이프라인 — (1) 초해상화 → (2) 결측 보간 → (3) 보간 모델 적용 → (4) Light-GBM 차이학습. LST/SST RMSE 목표 달성.</span><span class="en">Full pipeline — (1) super-resolution → (2) gap interpolation → (3) interpolation model → (4) LightGBM difference learning. Achieves the LST/SST RMSE targets.</span></figcaption>
+        <img src="../images/projects/kma-pipeline.jpeg" alt="Planned cloud-gap interpolation workflow combining super-resolution, spatial-temporal interpolation, and difference learning" loading="lazy" />
+        <figcaption><span class="ko">구름 결측치 보간을 포함하는 후속 파이프라인 계획: 초해상화 → 시·공간 정보를 이용한 보간 → 지상 관측 기반 차이학습. 보간 단계는 구현 중이며, 그림의 LST ≤ 4K·SST ≤ 3K는 목표값입니다.</span><span class="en">Planned extension: super-resolution → interpolation using spatial and temporal context → difference learning against ground observations. Interpolation is under implementation; the figure's LST ≤ 4K and SST ≤ 3K are targets.</span></figcaption>
       </figure>
-
-      <ul class="ko">
-        <li><strong>Phase 1 (Clear-Sky):</strong> 2km → 250m 다운스케일링에서 <strong>LST RMSE ≤ 3K, SST RMSE ≤ 2K</strong> 달성</li>
-        <li><strong>Phase 2 (Cloud-Sky):</strong> 모델 설계 및 학습 진행 중</li>
-        <li>기상청에 <strong>40페이지 이상의 기술 문서</strong> 제출 — 데이터 처리, 모델 설계, 평가 절차 포함</li>
-      </ul>
-      <ul class="en">
-        <li><strong>Phase 1 (Clear-Sky):</strong> Achieved <strong>LST RMSE ≤ 3K and SST RMSE ≤ 2K</strong> on the 2km → 250m task</li>
-        <li><strong>Phase 2 (Cloud-Sky):</strong> Model design and training in progress</li>
-        <li>Delivered <strong>40+ pages of technical documentation</strong> to KMA, covering data processing, model design, and evaluation</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><span class="ko">역할</span><span class="en">My Role</span></h2>
-      <p class="ko">
-        데이터 처리 파이프라인과 모델 설계를 주도하고, 기상청 제출 기술 문서를 작성했습니다.
-        Difference Learning 기반 sensor mismatch 보정 구조를 제안했고, Phase 1 결과 검증을 담당했습니다.
-      </p>
-      <p class="en">
-        Led the data pipeline and model design, and authored the technical documentation submitted to KMA.
-        Proposed the Difference Learning component for sensor-mismatch correction and validated the
-        Phase 1 results.
-      </p>
-    </section>
-
-    <section>
-      <h2><span class="ko">팀</span><span class="en">Team</span></h2>
-      <p class="ko"><strong>DAMILAB</strong> (동국대학교) × <strong>기상청 (KMA)</strong></p>
-      <p class="en"><strong>DAMILAB</strong> (Dongguk University) × <strong>Korea Meteorological Administration (KMA)</strong></p>
     </section>
 
     <section>

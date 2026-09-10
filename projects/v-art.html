@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>V-ART — VR AI Docent · Yunseok Lee 이윤석</title>
-  <meta name="description" content="LLM/RAG 기반 VR AI 도슨트 시스템. LLM-based AI docent for VR environments with RAG and semantic search." />
+  <title>가상현실 크로스플랫폼 미술관 V-ART · Yunseok Lee 이윤석</title>
+  <meta name="description" content="가상현실 크로스플랫폼 미술관 V-ART. 동국대학교·요요인터렉티브 산학 종합설계 프로젝트의 데이터베이스 구축 및 서버 개발. Cross-platform VR art museum with semantic search and an LLM/RAG-based AI docent." />
   <script>
     (function () {
       try {
@@ -35,98 +35,87 @@
       <p class="project-meta">
         <span class="tag">PROJECT</span>
         2024.09 – 2025.06
-        · <span class="ko">학부 연구 / DAMILAB</span><span class="en">Undergraduate Research / DAMILAB</span>
+        · <span class="ko">산학 종합설계 프로젝트</span><span class="en">Industry–University Capstone Project</span>
       </p>
-      <h1 class="project-title">V-ART <span style="color: var(--muted); font-weight: 500; font-size: 0.7em;"><span class="ko">— VR AI 도슨트</span><span class="en">— VR AI Docent</span></span></h1>
-      <p class="project-subtitle ko">VR 환경에서 작동하는 LLM·RAG 기반 AI 도슨트 시스템. 작품 맥락 인지와 자연스러운 대화형 안내 제공.</p>
-      <p class="project-subtitle en">An LLM/RAG-based AI docent for VR exhibitions, providing context-aware artwork guidance through natural dialogue.</p>
+      <h1 class="project-title">
+        <span class="ko">가상현실 크로스플랫폼 미술관 V-ART</span>
+        <span class="en">V-ART: Cross-Platform Virtual Reality Art Museum</span>
+      </h1>
+      <p class="project-subtitle ko">작품 이미지와 메타데이터를 바탕으로 Semantic Search 기반 질의응답과 LLM 생성형 해설을 제공하는 VR 미술관 서비스.</p>
+      <p class="project-subtitle en">A VR art museum combining semantic search over artwork images and metadata with LLM-generated answers and explanations.</p>
+      <dl class="project-facts">
+        <div>
+          <dt><span class="ko">주관</span><span class="en">Program &amp; Partners</span></dt>
+          <dd><span class="ko">종합설계 프로젝트(동국대학교) / ㈜요요인터렉티브</span><span class="en">Capstone Design Project, Dongguk University / ㈜요요인터렉티브</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">참여 기간</span><span class="en">Period</span></dt>
+          <dd>2024.09 – 2025.06</dd>
+        </div>
+        <div>
+          <dt><span class="ko">담당 역할</span><span class="en">My Role</span></dt>
+          <dd><span class="ko">데이터베이스 구축 및 서버 개발</span><span class="en">Database construction and server development</span></dd>
+        </div>
+      </dl>
     </header>
 
     <section>
       <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
-      <p class="ko">
-        VR 환경에서 사용자가 작품 앞에 섰을 때, AI 도슨트가 해당 작품의 맥락을 이해하고
-        자연스러운 대화로 안내해주는 시스템. LLM의 일반 지식을 RAG로 보강하여
-        작품별 정확한 정보를 제공하면서도 사용자의 질문에 유연하게 응답할 수 있도록 설계.
-      </p>
-      <p class="en">
-        A VR-based AI docent that, when a user faces an artwork, understands the artwork's
-        context and guides the visitor through natural dialogue. Combines an LLM's general
-        knowledge with RAG over artwork-specific data so the system provides accurate
-        per-artwork facts while remaining flexible enough to respond to free-form questions.
-      </p>
+      <p class="ko">V-ART는 가상 전시 공간에서 작품을 관람하고, 작품에 관해 질문하며 해설을 받을 수 있는 크로스플랫폼 VR 미술관입니다. 동국대학교 종합설계 프로젝트로 ㈜요요인터렉티브와 10개월간 산학과제를 수행했으며, 작품 정보를 검색해 답변에 활용하는 LLM 기반 AI 도슨트와 RAG 파이프라인을 서비스에 통합했습니다.</p>
+      <p class="en">V-ART is a cross-platform VR art museum where visitors can explore exhibitions, ask questions about artworks, and receive explanations. Developed through a ten-month capstone collaboration between Dongguk University and ㈜요요인터렉티브, the service integrates an LLM-based AI docent with a retrieval-augmented generation (RAG) pipeline that supplies artwork information for its answers.</p>
     </section>
 
     <section>
-      <h2><span class="ko">동기</span><span class="en">Motivation</span></h2>
-      <p class="ko">
-        기존 VR 도슨트는 사전 녹음된 대본 재생 수준에 머물러, 사용자 질문이나 시선이 향한
-        작품에 맞춰 동적으로 안내할 수 없었습니다. LLM을 그대로 붙이면 환각·일반화 오류가
-        문제가 되고, 통신 latency가 VR 몰입감을 크게 해치는 한계가 있었습니다.
-      </p>
-      <p class="en">
-        Prior VR docents were essentially scripted audio playback — unable to adapt to user
-        questions or to whichever artwork the user was looking at. Naively bolting an LLM on
-        introduces hallucinations and generic answers, and the round-trip latency badly hurts
-        VR immersion.
-      </p>
+      <h2><span class="ko">해결하고자 한 문제</span><span class="en">Problem</span></h2>
+      <p class="ko">가상 전시에 대한 수요가 증가했지만, 기존 플랫폼은 단순 관람 중심으로 구성되어 작품에 관한 텍스트 정보가 부족하고 사용자와 작품 사이의 상호작용도 제한적이었습니다. 작품별 질문에 응답하려면 이미지·메타데이터를 검색 가능한 형태로 정리하고, VR 클라이언트와 AI 서버 사이의 응답 지연을 고려한 데이터베이스를 구축해야 했습니다.</p>
+      <p class="en">Virtual exhibition platforms offered limited textual information and few ways to interact with artworks beyond viewing them. Supporting artwork-specific questions required organizing images and metadata for retrieval, while accounting for response latency between the VR client and the AI server.</p>
     </section>
 
     <section>
       <h2><span class="ko">접근 방법</span><span class="en">Approach</span></h2>
-
       <figure class="project-figure">
-        <img src="../images/projects/vart-architecture.png" alt="V-ART system architecture" loading="lazy" />
-        <figcaption><span class="ko">시스템 아키텍처 — Semantic Content Generation Pipeline(작품 metadata → LMM → LLM → Vector DB) + RAG-based Art Query Pipeline.</span><span class="en">System architecture — a Semantic Content Generation Pipeline (artwork metadata → LMM → LLM → Vector DB) feeding a RAG-based Art Query Pipeline at runtime.</span></figcaption>
+        <img src="../images/projects/vart-architecture.png" alt="V-ART artwork content generation and RAG query pipelines" loading="lazy" />
+        <figcaption><span class="ko">작품 이미지·메타데이터를 설명과 벡터 문서로 구성하는 Semantic Content Generation Pipeline과, 관련 작품 정보를 검색해 LLM에 전달하는 RAG-based Art Query Pipeline.</span><span class="en">The Semantic Content Generation Pipeline turns artwork images and metadata into descriptions and vector documents; the RAG-based Art Query Pipeline retrieves relevant artwork information for the LLM.</span></figcaption>
       </figure>
-
       <ul class="ko">
-        <li><strong>AI 도슨트 코어:</strong> LLM + RAG로 작품별 맥락에 기반한 응답 생성</li>
-        <li><strong>Semantic Search 기반 검색:</strong> 작품 메타데이터·해설 corpus에서 의미 기반 검색</li>
-        <li><strong>VR 클라이언트 ↔ AI 서버 분리:</strong> latency-aware 아키텍처로 VR 측 응답성 유지</li>
-        <li><strong>RAG 파이프라인 최적화:</strong> 인덱싱·재정렬·캐싱으로 응답 시간 최소화</li>
+        <li><strong>작품 정보의 벡터화:</strong> 작품 이미지와 메타데이터에서 설명·키워드를 구성하고, 관련 정보를 벡터 문서로 저장해 의미 기반 검색이 가능한 데이터베이스를 구축했습니다.</li>
+        <li><strong>Semantic Search 기반 질의응답:</strong> 사용자 질의와 메타데이터를 바탕으로 관련 작가·작품 정보를 검색하고, 검색 결과를 질문·프롬프트와 함께 LLM에 전달하는 RAG 흐름을 구성했습니다.</li>
+        <li><strong>AI 도슨트와 VR 연동:</strong> 검색한 작품 정보를 바탕으로 생성한 답변과 해설을 VR 클라이언트에 제공했습니다. 클라이언트–AI 서버 간 응답 지연 문제에 대응하기 위해 RAG용 데이터베이스를 구축했습니다.</li>
       </ul>
       <ul class="en">
-        <li><strong>AI docent core:</strong> LLM + RAG generating responses grounded in artwork-specific context</li>
-        <li><strong>Semantic Search retrieval:</strong> Semantic search over artwork metadata and commentary corpora</li>
-        <li><strong>VR client / AI server split:</strong> A latency-aware architecture that preserves VR responsiveness</li>
-        <li><strong>RAG pipeline optimization:</strong> Indexing, reranking, and caching to minimize response time</li>
+        <li><strong>Artwork embeddings:</strong> Organized descriptions and keywords derived from artwork images and metadata into vector documents, creating a database for semantic retrieval.</li>
+        <li><strong>Semantic search and question answering:</strong> Retrieved relevant artist and artwork information using the visitor's query and metadata, then supplied that context alongside the query and prompt to the LLM.</li>
+        <li><strong>AI docent integration:</strong> Returned generated answers and explanations to the VR client. A database supporting the RAG pipeline addressed the client–AI server latency bottleneck.</li>
       </ul>
-
       <figure class="project-figure">
-        <img src="../images/projects/vart-museum-ui.jpeg" alt="V-ART museum browse UI" loading="lazy" />
-        <figcaption><span class="ko">VR 미술관 목록 UI — 사용자가 작품을 선택하면 AI 도슨트가 작품 맥락에 맞는 대화로 안내한다.</span><span class="en">VR museum browse UI — selecting an artwork hands off to the AI docent for context-grounded dialogue.</span></figcaption>
+        <img src="../images/projects/vart-museum-ui.jpeg" alt="V-ART museum list interface showing artists and artworks" loading="lazy" />
+        <figcaption><span class="ko">V-ART의 미술관 목록 화면. 작가와 작품 정보를 함께 표시하는 가상 전시 탐색 인터페이스.</span><span class="en">V-ART's museum list interface, displaying artists and artworks for browsing virtual exhibitions.</span></figcaption>
       </figure>
+    </section>
+
+    <section>
+      <h2><span class="ko">담당 역할</span><span class="en">My Role</span></h2>
+      <p class="ko"><strong>데이터베이스 구축 및 서버 개발</strong>을 담당했습니다. 작품 정보의 벡터화와 Semantic Search를 지원하는 RAG용 데이터베이스를 구축하고, 검색 결과를 활용한 AI 질의응답·설명을 VR 서비스와 연결하는 서버 개발에 참여했습니다.</p>
+      <p class="en">I was responsible for <strong>database construction and server development</strong>. My work included building the RAG database for artwork embeddings and semantic search, and developing the server that connects retrieval-based AI answers and explanations to the VR service.</p>
     </section>
 
     <section>
       <h2><span class="ko">결과</span><span class="en">Results</span></h2>
       <ul class="ko">
-        <li>VR 환경에서 작품별 맥락에 맞는 안내가 가능한 AI 도슨트 프로토타입 완성</li>
-        <li>Semantic Search 도입으로 LLM 응답 품질 향상</li>
-        <li>RAG 파이프라인 최적화를 통해 응답 지연을 <strong>약 10배 단축</strong></li>
+        <li>Semantic Search 기반 질의응답과 LLM 생성형 설명을 통합한 크로스플랫폼 VR 미술관 서비스 구현.</li>
+        <li><strong>10개월간의 산학과제</strong>를 통해 작품 데이터 처리, RAG용 데이터베이스 구축, AI 서버 개발 경험 확보.</li>
       </ul>
       <ul class="en">
-        <li>Built a working VR AI docent prototype delivering artwork-grounded guidance</li>
-        <li>Semantic Search noticeably improved LLM response quality</li>
-        <li>Pipeline optimization reduced response latency by <strong>~10×</strong></li>
+        <li>Implemented a cross-platform VR art museum integrating semantic-search question answering with LLM-generated explanations.</li>
+        <li>Completed a <strong>ten-month industry–university project</strong>, gaining experience in artwork data processing, RAG database construction, and AI server development.</li>
       </ul>
-    </section>
-
-    <section>
-      <h2><span class="ko">역할</span><span class="en">My Role</span></h2>
-      <p class="ko">백엔드 및 AI 파트 담당 (팀장). LLM/RAG 파이프라인 설계, Semantic Search 도입, VR 클라이언트 ↔ AI 서버 통신 구조 설계.</p>
-      <p class="en">Backend &amp; AI lead (team lead). Designed the LLM/RAG pipeline, introduced semantic search, and structured the VR client ↔ AI server communication.</p>
     </section>
 
     <a href="../index.html#projects" class="back-link">
       <span class="ko">← 프로젝트 목록으로</span>
       <span class="en">← Back to projects</span>
     </a>
-
-    <footer>
-      &copy; 2026 Yunseok Lee 이윤석.
-    </footer>
+    <footer>&copy; 2026 Yunseok Lee 이윤석.</footer>
   </main>
   <script src="../js/i18n.js"></script>
 </body>

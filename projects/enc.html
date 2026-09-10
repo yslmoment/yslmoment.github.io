@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>E-N-C — Context-Aware Campus Safety System · Yunseok Lee 이윤석</title>
-  <meta name="description" content="GPS·Wi-Fi·IoT 기반 캠퍼스 안전 시스템. 2024 인공지능학과 공모전 수상. Award-winning context-aware campus safety platform." />
+  <title>‘루크온’ E-N-C 기반 위험 대응 및 안심 캠퍼스 구축 시스템 · Yunseok Lee 이윤석</title>
+  <meta name="description" content="‘루크온’ E-N-C 기반 위험 대응 및 안심 캠퍼스 구축 시스템. IoT·Wi-Fi·사용자 참여 데이터를 통합한 안전 관리 서비스. 2024년 동국대학교 AI융합대학 아코톤 대상." />
   <script>
     (function () {
       try {
@@ -34,112 +34,88 @@
     <header class="project-header">
       <p class="project-meta">
         <span class="tag">PROJECT</span>
-        2024.08 – 2024.11
-        · <span class="ko">학부 / 2024 인공지능학과 공모전 수상</span><span class="en">Undergraduate · Winner, 2024 AI Department Competition</span>
+        2024.11
+        · <span class="ko">동국대학교 AI융합대학 아코톤 대상</span><span class="en">Grand Prize, Dongguk University ICONICTHON</span>
       </p>
       <h1 class="project-title">
-        <span class="ko">E-N-C 기반 캠퍼스 안전 시스템</span>
-        <span class="en">E-N-C: Context-Aware Campus Safety System</span>
+        <span class="ko">‘루크온’ E-N-C 기반 위험 대응 및 안심 캠퍼스 구축 시스템</span>
+        <span class="en">E-N-C Campus Risk Response and Safety System</span>
       </h1>
-      <p class="project-subtitle ko">GPS·Wi-Fi·IoT 시그널을 융합해 캠퍼스 내 위치·맥락을 인지하고, 위험 상황 시 지정된 보호자에게 알림을 전송하는 안전 시스템.</p>
-      <p class="project-subtitle en">A campus safety system that fuses GPS, Wi-Fi, and IoT signals to infer on-campus location and context, and pushes alerts to designated guardians during emergencies.</p>
+      <p class="project-subtitle ko">전력(IoT), 네트워크(Wi-Fi), 사용자 참여 데이터를 통합해 실시간 밀집도 분석·위험 구역 탐지·모바일 신고를 지원하는 캠퍼스 안전 관리 서비스.</p>
+      <p class="project-subtitle en">A campus safety service integrating electricity-use IoT data, Wi-Fi data, and user reports for real-time crowd-density analysis, risk detection, and mobile incident reporting.</p>
+      <dl class="project-facts">
+        <div>
+          <dt><span class="ko">주관</span><span class="en">Event</span></dt>
+          <dd><span class="ko">2024년 AI융합대학 아코톤(동국대학교)</span><span class="en">ICONICTHON 2024, College of AI Convergence, Dongguk University</span></dd>
+        </div>
+        <div>
+          <dt><span class="ko">참여 기간</span><span class="en">Period</span></dt>
+          <dd>2024.11</dd>
+        </div>
+        <div>
+          <dt><span class="ko">담당 역할</span><span class="en">My Role</span></dt>
+          <dd><span class="ko">인프라 구축 및 프론트엔드 개발</span><span class="en">Infrastructure setup and frontend development</span></dd>
+        </div>
+      </dl>
     </header>
 
     <section>
       <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
-      <p class="ko">
-        <strong>E-N-C 보호자</strong>는 동국대학교 캠퍼스를 무대로 한 개인 안전 플랫폼입니다.
-        학생의 위치와 주변 맥락을 GPS·Wi-Fi·IoT 시그널로 추정하고, 위험 신호가 감지되면
-        사전에 지정된 <em>보호자</em>(가족·친구 등)에게 즉시 알림을 전송합니다.
-        음성 인터페이스로 길찾기와 주변 정보 조회도 제공합니다.
-      </p>
-      <p class="en">
-        <strong>E-N-C Guardian</strong> is a personal safety platform centered on the Dongguk
-        University campus. It infers a student's location and surrounding context by fusing
-        GPS, Wi-Fi, and IoT signals, and pushes immediate alerts to pre-designated
-        <em>guardians</em> (family or friends) when a danger signal is detected. A voice
-        interface lets users ask for directions and nearby information hands-free.
-      </p>
-      <figure class="project-figure">
-        <img src="../images/projects/enc-system.png" alt="E-N-C system architecture" loading="lazy" />
-        <figcaption><span class="ko">시스템 아키텍처 — TestBed 데이터, oneM2M IoT, Wi-Fi 인프라(DCU-WiFi), 보호자 알림 채널을 통합</span><span class="en">System architecture — integrating TestBed data, oneM2M IoT, the campus Wi-Fi backbone (DCU-WiFi), and guardian alert channels</span></figcaption>
-      </figure>
+      <p class="ko">‘루크온’은 캠퍼스의 사건·사고와 인파 밀집에 대응하기 위해 개발한 안전 관리 시스템입니다. 교내 테스트베드에서 수집하는 전력·네트워크 데이터에 구성원의 위험 제보를 결합해, 캠퍼스 상황을 파악하고 위험 구역을 탐지하며 모바일로 신고할 수 있는 서비스를 구축했습니다.</p>
+      <p class="en">This E-N-C campus safety system was developed to address incidents and crowding. It combines electricity and network data from the campus testbed with reports from campus members, supporting situational awareness, risk-area detection, and mobile reporting.</p>
     </section>
 
     <section>
-      <h2><span class="ko">동기</span><span class="en">Motivation</span></h2>
-      <p class="ko">
-        대학 캠퍼스는 야간 보행로·인적 드문 구역 등 잠재적 위험이 존재하지만, 학생이
-        직접 신고를 하기 어려운 상황이 많습니다. 기존 캠퍼스 안전 앱은 사용자가 적극적으로
-        조작해야 동작하는 단방향 구조라, 위험 상황에서 빠른 보호자 연결이 어려웠습니다.
-        지속적인 맥락 인지를 기반으로 <strong>능동적·자동적</strong>으로 보호자에게 신호를
-        전달하는 시스템이 필요했습니다.
-      </p>
-      <p class="en">
-        University campuses include risk-prone areas — late-night walkways, low-traffic zones —
-        where students may be unable to call for help themselves. Existing campus safety apps
-        rely on the user actively initiating contact, making them unreliable in real emergencies.
-        We needed a system that <strong>continuously infers context</strong> and proactively
-        signals a guardian when needed.
-      </p>
+      <h2><span class="ko">해결하고자 한 문제</span><span class="en">Problem</span></h2>
+      <p class="ko">캠퍼스 내 사건·사고와 인파 밀집을 실시간으로 파악할 안전 관리·위험 감지 체계가 필요했습니다. 기존 시스템의 외부 접근 제한 때문에 실시간 데이터 수집이 어려웠고, 여러 시스템에 분산된 데이터를 활용해 인구 밀집도를 분석하는 데에도 한계가 있었습니다.</p>
+      <p class="en">Campus incidents and crowding called for real-time safety monitoring and risk detection. Access restrictions in existing systems made live data collection difficult, while data distributed across separate systems limited crowd-density analysis.</p>
     </section>
 
     <section>
       <h2><span class="ko">접근 방법</span><span class="en">Approach</span></h2>
+      <figure class="project-figure">
+        <img src="../images/projects/enc-system.png" alt="E-N-C campus safety architecture combining electricity IoT, DGU-WiFi, user reports, and monitoring screens" loading="lazy" />
+        <figcaption><span class="ko">전력 사용량 기반 강의실 IoT 테스트베드, DGU-WiFi 통신 데이터 인프라, 구성원의 실시간 위험 제보를 연결한 E-N-C 캠퍼스 안전 시스템 구성도.</span><span class="en">E-N-C system overview connecting a classroom electricity-use IoT testbed, DGU-WiFi network data infrastructure, and real-time incident reports from campus members.</span></figcaption>
+      </figure>
       <ul class="ko">
-        <li><strong>맥락 인지 (Context Inference):</strong> GPS, Wi-Fi (DCU-WiFi 인프라), IoT 시그널을 융합하여 학생의 위치·이동 패턴·주변 환경을 추정</li>
-        <li><strong>IoT 표준:</strong> oneM2M 기반 TestBed 데이터로 캠퍼스 시설·환경 정보를 통합</li>
-        <li><strong>음성 인터페이스:</strong> React 기반 클라이언트에 TTS와 On-device ASR을 결합해 손이 자유롭지 않은 상황에서도 인터랙션 가능</li>
-        <li><strong>보호자 알림 채널:</strong> 위험 신호 감지 시 사전 지정된 보호자에게 위치·시간·메시지를 자동 전송</li>
-        <li><strong>주변 안내 기능:</strong> "길찾기", "내 주변 보기"로 안전한 경로·시설 정보 제공</li>
+        <li><strong>통합 데이터 파이프라인:</strong> 전력(IoT), 네트워크(Wi-Fi), 사용자 참여 데이터를 함께 활용할 수 있도록 수집·연결하는 파이프라인을 구축했습니다.</li>
+        <li><strong>테스트베드 데이터 활용:</strong> oneM2M 기반 IoT 센서와 전력 사용량 정보를 활용하고, Wi-Fi 기반 유동인구 정보를 결합해 캠퍼스 밀집도와 위험 구역을 분석했습니다.</li>
+        <li><strong>모바일 신고 시스템:</strong> 캠퍼스 구성원이 위험 상황을 직접 제보할 수 있는 사용자 참여 기능을 개발해, 인프라에서 수집한 데이터와 현장의 신고를 함께 활용했습니다.</li>
+        <li><strong>안전 관리 화면:</strong> 실시간 밀집도 분석, 위험 구역 탐지, 사용자 신고 기능을 캠퍼스 안전 관리 서비스로 통합했습니다.</li>
       </ul>
       <ul class="en">
-        <li><strong>Context inference:</strong> Fused GPS, Wi-Fi (DCU-WiFi backbone), and IoT signals to infer location, mobility patterns, and environment</li>
-        <li><strong>IoT standard:</strong> Integrated campus facility and environmental data via oneM2M-based TestBed</li>
-        <li><strong>Voice interface:</strong> React client with TTS and on-device ASR for hands-free interaction</li>
-        <li><strong>Guardian alert channel:</strong> On danger signal, automatically sends location, time, and message to pre-designated guardians</li>
-        <li><strong>Wayfinding:</strong> "Find a way" and "Look around me" features for safe routes and nearby facility info</li>
+        <li><strong>Integrated data pipeline:</strong> Built a pipeline that connects electricity-use IoT data, Wi-Fi network data, and user-contributed reports.</li>
+        <li><strong>Campus testbed integration:</strong> Used oneM2M-based IoT sensor and electricity-use data alongside Wi-Fi-based foot-traffic information to support crowd-density and risk-area analysis.</li>
+        <li><strong>Mobile incident reporting:</strong> Developed a reporting interface so campus members could contribute observations alongside infrastructure data.</li>
+        <li><strong>Safety management interface:</strong> Brought real-time density analysis, risk-area detection, and user reports together in a campus safety service.</li>
       </ul>
-
-      <div class="figure-row">
-        <figure class="project-figure">
-          <img src="../images/projects/enc-app.jpeg" alt="E-N-C app — main interface" loading="lazy" />
-          <figcaption><span class="ko">앱 메인 — "길찾기 / 내 주변 보기" 음성+터치 인터랙션</span><span class="en">App home — "Find a way / Look around me" with voice+touch interaction</span></figcaption>
-        </figure>
-        <figure class="project-figure">
-          <img src="../images/projects/enc-notification.png" alt="E-N-C guardian notification" loading="lazy" />
-          <figcaption><span class="ko">보호자 알림 — 위험 신호 발생 시 위치·시간 자동 전송</span><span class="en">Guardian alert — auto-sent with location and timestamp on danger trigger</span></figcaption>
-        </figure>
-      </div>
     </section>
 
     <section>
-      <h2><span class="ko">성과</span><span class="en">Recognition</span></h2>
-      <p class="ko">
-        <strong>2024 동국대학교 인공지능학과 공모전 수상 (2024.11).</strong>
-        Context-aware 추정과 보호자 알림 UX를 결합한 캠퍼스 안전 플랫폼으로 인정받음.
-      </p>
-      <p class="en">
-        <strong>Winner, 2024 AI Department Competition, Dongguk University (Nov. 2024).</strong>
-        Recognized as a campus safety platform combining context-aware inference with a
-        practical guardian-alert UX.
-      </p>
+      <h2><span class="ko">담당 역할</span><span class="en">My Role</span></h2>
+      <p class="ko"><strong>인프라 구축 및 프론트엔드 개발</strong>을 담당했습니다. 교내 테스트베드 데이터를 서비스에 연결하는 인프라를 구축하고, 안전 관리 정보와 모바일 신고 기능을 제공하는 사용자 화면 개발에 참여했습니다.</p>
+      <p class="en">I was responsible for <strong>infrastructure setup and frontend development</strong>. I worked on infrastructure connecting campus testbed data to the service, and on user interfaces for safety information and mobile incident reporting.</p>
     </section>
 
     <section>
-      <h2><span class="ko">역할</span><span class="en">My Role</span></h2>
-      <p class="ko">팀장 / 백엔드 리드. 시스템 아키텍처, 맥락 추정 파이프라인, ASR/TTS 통합, IoT/oneM2M 데이터 연동을 담당.</p>
-      <p class="en">Team lead / backend lead. Owned the system architecture, context-inference pipeline, ASR/TTS integration, and oneM2M IoT data integration.</p>
+      <h2><span class="ko">결과 및 수상</span><span class="en">Results &amp; Recognition</span></h2>
+      <ul class="ko">
+        <li>실시간 밀집도 분석, 위험 구역 탐지, 사용자 참여 기반 신고 기능을 포함한 캠퍼스 안전 관리 서비스 구축.</li>
+        <li>실시간 캠퍼스 테스트베드 데이터를 통합하고 서비스에 활용한 경험 확보.</li>
+        <li><strong>2024년 동국대학교 AI융합대학 아코톤 대상 수상.</strong></li>
+      </ul>
+      <ul class="en">
+        <li>Built a campus safety service with real-time crowd-density analysis, risk-area detection, and user-contributed incident reports.</li>
+        <li>Gained experience integrating and using live campus testbed data in an application.</li>
+        <li><strong>Grand Prize, ICONICTHON 2024, College of AI Convergence, Dongguk University.</strong></li>
+      </ul>
     </section>
 
     <a href="../index.html#projects" class="back-link">
       <span class="ko">← 프로젝트 목록으로</span>
       <span class="en">← Back to projects</span>
     </a>
-
-    <footer>
-      &copy; 2026 Yunseok Lee 이윤석.
-    </footer>
+    <footer>&copy; 2026 Yunseok Lee 이윤석.</footer>
   </main>
   <script src="../js/i18n.js"></script>
 </body>
