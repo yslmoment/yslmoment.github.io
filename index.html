@@ -14,368 +14,7 @@
       } catch (e) {}
     })();
   </script>
-  <style>
-    :root {
-      --text: #222;
-      --muted: #666;
-      --line: #e2e2e2;
-      --bg: #ffffff;
-      --link: #1565c0;
-      --tag-bg: #f1f3f5;
-      --tag-text: #495057;
-      --block-bg: #fafafa;
-      --block-border: #ebebeb;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.65;
-      color: var(--text);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 1.75rem 5rem;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover { text-decoration: underline; }
-
-    /* Lang switcher */
-    html[data-lang="ko"] .en { display: none !important; }
-    html[data-lang="en"] .ko { display: none !important; }
-
-    .lang-toggle {
-      display: inline-flex;
-      gap: 0.25rem;
-      margin-left: auto;
-      padding-left: 0.5rem;
-    }
-
-    .lang-btn {
-      background: none;
-      border: 1px solid var(--block-border);
-      color: var(--muted);
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font: inherit;
-      font-size: 0.8rem;
-      line-height: 1.3;
-      transition: all 0.15s;
-    }
-
-    .lang-btn:hover { color: var(--text); border-color: #c5c5c5; }
-
-    .lang-btn.active {
-      background: var(--text);
-      color: #fff;
-      border-color: var(--text);
-    }
-
-    /* Top nav */
-    .topnav {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 1.75rem;
-      color: var(--muted);
-    }
-
-    .nav-links a { margin-right: 0.4rem; }
-    .nav-links a + a { margin-left: 0.4rem; }
-    .nav-links .sep { color: #bbb; margin: 0 0.25rem; }
-
-    /* Header */
-    header {
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 2rem;
-      align-items: start;
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    h1 .kr {
-      color: var(--muted);
-      font-weight: 500;
-      font-size: 1.6rem;
-      margin-left: 0.25rem;
-    }
-
-    .affil {
-      color: var(--text);
-      margin: 0 0 0.75rem;
-      font-size: 1rem;
-    }
-
-    .socials {
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .socials a { color: var(--link); }
-
-    .photo {
-      width: 180px;
-      height: 220px;
-      object-fit: cover;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      display: block;
-      background: #f5f5f5;
-    }
-
-    /* Bio */
-    .bio p {
-      margin: 0 0 0.85rem;
-    }
-
-    .bio strong { font-weight: 600; }
-
-    /* Sections — each rendered as a soft block */
-    section {
-      margin-top: 1.5rem;
-      background: var(--block-bg);
-      border: 1px solid var(--block-border);
-      border-radius: 8px;
-      padding: 1.5rem 1.75rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin: 0 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--block-border);
-      color: var(--text);
-      letter-spacing: -0.005em;
-    }
-
-    p { margin: 0 0 0.85rem; }
-    p:last-child { margin-bottom: 0; }
-    strong { font-weight: 600; }
-    em { font-style: italic; }
-
-    /* Research interests — title as tag block, description indented below */
-    .research-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .research-list li {
-      padding: 0.65rem 0;
-      border-bottom: 1px dotted var(--line);
-    }
-
-    .research-list li:last-child { border-bottom: none; }
-
-    .research-title {
-      display: inline-block;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 0.22rem 0.65rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      margin-bottom: 0.45rem;
-    }
-
-    .research-desc {
-      color: var(--text);
-      font-size: 0.95rem;
-      padding-left: 0.15rem;
-    }
-
-    /* News — date as tag block, content indented to the right */
-    .news {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .news li {
-      display: flex;
-      gap: 0.85rem;
-      padding: 0.55rem 0;
-      align-items: start;
-      font-size: 0.97rem;
-      border-bottom: 1px dotted var(--line);
-    }
-
-    .news li:last-child { border-bottom: none; }
-
-    .news .date {
-      flex: 0 0 auto;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 0.22rem 0.55rem;
-      border-radius: 4px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      white-space: nowrap;
-      margin-top: 0.1rem;
-    }
-
-    .news-body { flex: 1 1 auto; }
-
-    /* Publications */
-    .pub {
-      display: grid;
-      grid-template-columns: 6.5rem 1fr;
-      gap: 1rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px dotted var(--line);
-      align-items: start;
-    }
-
-    .pub:last-child { border-bottom: none; }
-
-    .pub-tag {
-      display: inline-block;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 0.18rem 0.5rem;
-      border-radius: 3px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-align: center;
-      white-space: nowrap;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    }
-
-    .pub-body { font-size: 0.97rem; }
-
-    .pub-title {
-      font-weight: 600;
-      color: var(--text);
-      margin: 0 0 0.15rem;
-    }
-
-    .pub-authors {
-      margin: 0 0 0.15rem;
-      color: var(--text);
-    }
-
-    .pub-authors .me {
-      font-weight: 700;
-      text-decoration: underline;
-    }
-
-    .pub-venue {
-      color: var(--muted);
-      font-style: italic;
-      margin: 0 0 0.25rem;
-    }
-
-    .pub-links {
-      font-size: 0.88rem;
-      margin: 0;
-    }
-
-    .pub-links a {
-      margin-right: 0.5rem;
-    }
-
-    .pub-bibtex {
-      display: inline;
-    }
-
-    .pub-bibtex summary {
-      display: inline;
-      cursor: pointer;
-      color: var(--link);
-      list-style: none;
-    }
-
-    .pub-bibtex summary::-webkit-details-marker { display: none; }
-    .pub-bibtex summary::marker { content: ""; }
-    .pub-bibtex summary:hover { text-decoration: underline; }
-
-    .pub-bibtex pre {
-      margin: 0.6rem 0 0;
-      padding: 0.75rem 0.9rem;
-      background: #f1f3f5;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      font-size: 0.8rem;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      overflow-x: auto;
-      white-space: pre;
-      line-height: 1.5;
-      color: #333;
-    }
-
-    /* Education / Experience / Projects */
-    .entry {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      padding: 0.5rem 0;
-      align-items: baseline;
-      border-bottom: 1px dotted var(--line);
-    }
-
-    .entry:last-child { border-bottom: none; }
-
-    .entry-main { font-size: 0.97rem; }
-    .entry-role { color: var(--muted); font-size: 0.9rem; margin-top: 0.1rem; }
-    .entry-date {
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-variant-numeric: tabular-nums;
-      white-space: nowrap;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 3.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.82rem;
-      text-align: center;
-    }
-
-    @media (max-width: 720px) {
-      main { padding: 1.75rem 1.25rem 3rem; }
-      header { grid-template-columns: 1fr; }
-      .photo { width: 140px; height: 170px; margin: 0 auto; }
-      h1 { font-size: 1.6rem; }
-      h1 .kr { font-size: 1.3rem; display: inline-block; }
-      .pub { grid-template-columns: 1fr; gap: 0.3rem; }
-      .pub-tag { justify-self: start; }
-      .entry { grid-template-columns: 1fr; }
-      .topnav { font-size: 0.88rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <main>
@@ -385,6 +24,7 @@
         <a href="#news"><span class="ko">소식</span><span class="en">News</span></a><span class="sep">•</span>
         <a href="#research"><span class="ko">연구</span><span class="en">Research</span></a><span class="sep">•</span>
         <a href="#publications"><span class="ko">논문</span><span class="en">Publications</span></a><span class="sep">•</span>
+        <a href="#awards"><span class="ko">수상</span><span class="en">Awards</span></a><span class="sep">•</span>
         <a href="#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a><span class="sep">•</span>
         <a href="#education"><span class="ko">학력</span><span class="en">Education</span></a><span class="sep">•</span>
         <a href="#experience"><span class="ko">경력</span><span class="en">Experience</span></a><span class="sep">•</span>
@@ -427,7 +67,7 @@
           신뢰할 수 있고 안전한 AI 시스템을 만드는 데 관심이 있습니다.
         </p>
         <p>
-          최근 1저자로 참여한 논문이 <strong>ICML 2026 FAGEN Workshop</strong>에,
+          최근 공동 1저자로 참여한 <em>Will the User Ever Know?</em>가 <strong>EMNLP 2026 메인 컨퍼런스</strong>에,
           공저자로 참여한 <em>SlotGCG</em>가 <strong>ICLR 2026</strong>에 게재 승인되었습니다.
           또한 기상청(KMA)과 협업하여 기상 데이터에 머신러닝을 적용하는 프로젝트에도 참여하고 있습니다.
         </p>
@@ -444,7 +84,7 @@
           toward AI systems that are reliable, robust, and trustworthy.
         </p>
         <p>
-          Recently, my first-authored paper was accepted to the <strong>ICML 2026 FAGEN Workshop</strong>,
+          My co-first-authored paper <em>Will the User Ever Know?</em> was accepted to the <strong>EMNLP 2026 Main Conference</strong>,
           and my co-authored work <em>SlotGCG</em> was accepted to <strong>ICLR 2026</strong>.
           I am also involved in a Korea Meteorological Administration (KMA) project applying ML to weather data.
         </p>
@@ -458,6 +98,14 @@
     <section id="news">
       <h2><span class="ko">소식</span><span class="en">News</span></h2>
       <ul class="news">
+        <li class="ko">
+          <span class="date">2026.08</span>
+          <span class="news-body"><strong>EMNLP 2026 메인 컨퍼런스</strong> 논문 <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>“Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents”</em></a> (<strong>공동 1저자</strong>)이 arXiv에 공개되었습니다.</span>
+        </li>
+        <li class="en">
+          <span class="date">2026.08</span>
+          <span class="news-body">Our <strong>EMNLP 2026 Main Conference</strong> paper <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>“Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents”</em></a> (<strong>co-first author</strong>) is now available on arXiv.</span>
+        </li>
         <li class="ko">
           <span class="date">2026.05</span>
           <span class="news-body"><strong>1저자</strong> 논문 <em>“What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents”</em>이 <strong>ICML 2026 FAGEN Workshop</strong>에 게재 승인되었습니다.</span>
@@ -530,6 +178,34 @@
     <section id="publications">
       <h2><span class="ko">논문</span><span class="en">Publications</span></h2>
       <div class="pub">
+        <span class="pub-tag">EMNLP 2026</span>
+        <div class="pub-body">
+          <p class="pub-title">Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</p>
+          <p class="pub-authors">
+            <span class="me">Yunseok Lee</span><sup>*</sup>, Yunji Kim<sup>*</sup>, Woojin Lee
+          </p>
+          <p class="pub-authors"><small><sup>*</sup> <span class="ko">공동 1저자</span><span class="en">Equal contribution</span></small></p>
+          <p class="pub-venue">EMNLP 2026 Main Conference</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener">[arXiv]</a>
+            <a href="https://arxiv.org/pdf/2608.30362" target="_blank" rel="noopener">[PDF]</a>
+            <details class="pub-bibtex">
+              <summary>[BibTeX]</summary>
+<pre>@misc{lee2026will,
+  title={Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using {LLM} Agents},
+  author={Yunseok Lee and Yunji Kim and Woojin Lee},
+  year={2026},
+  eprint={2608.30362},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  note={EMNLP 2026 Main Conference},
+  url={https://arxiv.org/abs/2608.30362}
+}</pre>
+            </details>
+          </div>
+        </div>
+      </div>
+      <div class="pub">
         <span class="pub-tag">ICML-W 2026</span>
         <div class="pub-body">
           <p class="pub-title">What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents</p>
@@ -562,6 +238,7 @@
           <p class="pub-venue">The Fourteenth International Conference on Learning Representations (ICLR), 2026</p>
           <div class="pub-links">
             <a href="https://openreview.net/forum?id=Fn2rSOnpNf" target="_blank" rel="noopener">[OpenReview]</a>
+            <a href="https://github.com/youai058/SlotGCG" target="_blank" rel="noopener">[Code]</a>
             <details class="pub-bibtex">
               <summary>[BibTeX]</summary>
 <pre>@inproceedings{jeong2026slotgcg,
@@ -577,11 +254,29 @@
       </div>
     </section>
 
+    <section id="awards">
+      <h2><span class="ko">수상</span><span class="en">Awards &amp; Honors</span></h2>
+      <div class="entry">
+        <div class="entry-main">
+          <strong><span class="ko">2024 인공지능학과 공모전 수상</span><span class="en">Winner, 2024 AI Department Competition</span></strong>
+          <div class="entry-role ko">
+            동국대학교 인공지능학과 주최 공모전. Context-aware 캠퍼스 안전 시스템
+            (<a href="projects/enc.html">E-N-C</a>)으로 수상.
+          </div>
+          <div class="entry-role en">
+            Hosted by Dongguk University's AI Department. Awarded for the context-aware
+            campus safety system (<a href="projects/enc.html">E-N-C</a>).
+          </div>
+        </div>
+        <div class="entry-date">2024.11</div>
+      </div>
+    </section>
+
     <section id="projects">
       <h2><span class="ko">프로젝트</span><span class="en">Projects</span></h2>
       <div class="entry">
         <div class="entry-main">
-          <strong><span class="ko">기상청 AI 프로젝트</span><span class="en">KMA Weather AI Project</span></strong>
+          <a href="projects/kma.html" class="proj-link"><strong><span class="ko">기상청 AI 프로젝트</span><span class="en">KMA Weather AI Project</span></strong></a>
           <div class="entry-role ko">
             기상청(KMA)과의 협업. 기상 데이터 분석 및 예측을 위한 머신러닝 모델 개발.
           </div>
@@ -594,17 +289,47 @@
       </div>
       <div class="entry">
         <div class="entry-main">
-          <strong>Agentic RAG for Trustworthy LLMs</strong>
+          <a href="projects/agentic-rag.html" class="proj-link"><strong><span class="ko">신뢰 가능한 LLM 안전성 연구</span><span class="en">Trustworthy LLMs: Robustness &amp; Agent Safety</span></strong></a>
           <div class="entry-role ko">
-            외부 지식을 안정적으로 추론에 활용하면서도 통제 가능하고 검증 가능한
-            retrieval-augmented agent 설계.
+            LLM의 위치 취약성(SlotGCG) → Agent에 대한 간접 프롬프트 주입(IPI) →
+            End-to-End 안전성 파이프라인으로 이어지는 3단계 연구 라인.
           </div>
           <div class="entry-role en">
-            Designing retrieval-augmented agents that reason reliably over external knowledge
-            while remaining controllable and verifiable.
+            A three-phase research line: positional vulnerability in LLMs (SlotGCG) →
+            indirect prompt injection on tool-using agents (IPI) →
+            an end-to-end safety pipeline.
           </div>
         </div>
         <div class="entry-date">2025 – <span class="ko">현재</span><span class="en">Present</span></div>
+      </div>
+      <div class="entry">
+        <div class="entry-main">
+          <a href="projects/v-art.html" class="proj-link"><strong>V-ART <span class="ko">— VR AI 도슨트</span><span class="en">— VR AI Docent</span></strong></a>
+          <div class="entry-role ko">
+            VR 환경에서 작동하는 LLM·RAG 기반 AI 도슨트 시스템.
+            Semantic Search 적용으로 RAG latency 10배 개선.
+          </div>
+          <div class="entry-role en">
+            LLM/RAG-based AI docent system for VR environments.
+            10× latency reduction via Semantic Search.
+          </div>
+        </div>
+        <div class="entry-date">2024.09 – 2025.06</div>
+      </div>
+      <div class="entry">
+        <div class="entry-main">
+          <a href="projects/enc.html" class="proj-link"><strong>E-N-C <span class="ko">— 캠퍼스 안전 시스템</span><span class="en">— Campus Safety System</span></strong></a>
+          <div class="entry-role ko">
+            GPS·Wi-Fi·IoT(oneM2M) 기반으로 학생의 맥락을 인지하고 위험 신호를 보호자에게 자동 알림.
+            음성 인터페이스(TTS/On-device ASR) 탑재. <strong>2024 인공지능학과 공모전 수상.</strong>
+          </div>
+          <div class="entry-role en">
+            Context-aware campus safety platform fusing GPS, Wi-Fi, and oneM2M IoT — auto-alerts
+            a designated guardian on danger. Voice interface via TTS + on-device ASR.
+            <strong>Winner, 2024 AI Department Competition.</strong>
+          </div>
+        </div>
+        <div class="entry-date">2024.08 – 2024.11</div>
       </div>
     </section>
 
@@ -624,7 +349,7 @@
           <div class="entry-role ko">컴퓨터공학과 학사</div>
           <div class="entry-role en">B.S. in Computer Science</div>
         </div>
-        <div class="entry-date">– 2025.08</div>
+        <div class="entry-date">2020.03 – 2025.08</div>
       </div>
     </section>
 
@@ -671,22 +396,6 @@
     </footer>
   </main>
 
-  <script>
-    (function () {
-      function setLang(lang) {
-        document.documentElement.setAttribute('data-lang', lang);
-        document.documentElement.setAttribute('lang', lang);
-        try { localStorage.setItem('lang', lang); } catch (e) {}
-        document.querySelectorAll('.lang-btn').forEach(function (b) {
-          b.classList.toggle('active', b.dataset.lang === lang);
-        });
-      }
-      var initial = document.documentElement.getAttribute('data-lang') || 'ko';
-      setLang(initial);
-      document.querySelectorAll('.lang-btn').forEach(function (b) {
-        b.addEventListener('click', function () { setLang(b.dataset.lang); });
-      });
-    })();
-  </script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>

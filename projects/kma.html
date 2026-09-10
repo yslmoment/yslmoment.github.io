@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KMA Weather AI Project — Yunseok Lee 이윤석</title>
+  <meta name="description" content="기상위성 GK2A 지표면 온도(LST) 고해상화. Guided Depth Super-Resolution for KMA's GK2A satellite imagery." />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lang') || 'ko';
+        document.documentElement.setAttribute('data-lang', saved);
+        document.documentElement.setAttribute('lang', saved);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <main>
+    <nav class="topnav">
+      <div class="nav-links">
+        <a href="../index.html"><span class="ko">← 홈</span><span class="en">← Home</span></a><span class="sep">•</span>
+        <a href="../index.html#publications"><span class="ko">논문</span><span class="en">Publications</span></a><span class="sep">•</span>
+        <a href="../index.html#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a><span class="sep">•</span>
+        <a href="../index.html#contact"><span class="ko">연락처</span><span class="en">Contact</span></a>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </nav>
+
+    <header class="project-header">
+      <p class="project-meta">
+        <span class="tag">PROJECT</span>
+        2025.04 – <span class="ko">현재</span><span class="en">Present</span>
+        · DAMILAB &times; <span class="ko">기상청 (KMA)</span><span class="en">Korea Meteorological Administration (KMA)</span>
+      </p>
+      <h1 class="project-title">
+        <span class="ko">기상위성 GK2A 지표면 온도(LST) 고해상화</span>
+        <span class="en">LST Super-Resolution from KMA's GK2A Satellite</span>
+      </h1>
+      <p class="project-subtitle ko">기상청과의 협업 과제. 정지궤도 위성 GK2A의 2km 해상도 지표면 온도(LST)를 250m로 다운스케일링하는 Guided Depth Super-Resolution 연구.</p>
+      <p class="project-subtitle en">A KMA collaboration. Downscaling Land Surface Temperature (LST) from the geostationary GK2A satellite from 2km to 250m via Guided Depth Super-Resolution.</p>
+    </header>
+
+    <section>
+      <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
+      <p class="ko">
+        기상청(KMA)과 협업하는 다년간 과제로, <strong>정지궤도 기상위성 GK2A</strong>로부터 추출한
+        지표면 온도(Land Surface Temperature, LST)를 250m 해상도로 고해상화하는 것이 목표입니다.
+        GK2A의 native 해상도(2km)와 농업·도시 모니터링 등 응용에 필요한 해상도(250m) 사이의
+        domain gap을 ML 기반 super-resolution으로 좁히는 연구입니다.
+      </p>
+      <p class="en">
+        A multi-year collaboration with KMA aiming to super-resolve Land Surface Temperature (LST)
+        retrieved from <strong>GK2A</strong>, KMA's geostationary weather satellite, from its native
+        2km resolution down to 250m — closing the gap between sensor resolution and the resolution
+        required by downstream applications such as agriculture and urban monitoring.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">동기 및 문제 정의</span><span class="en">Background &amp; Motivation</span></h2>
+      <p class="ko">
+        GK2A는 한반도 전역을 관측하는 정지궤도 위성이지만 LST 산출물의 해상도(약 2km)는
+        세밀한 분석에 한계가 있습니다. 자연 이미지 SR 기법을 그대로 적용하면 위성 영상 특유의
+        sensor noise, 대기 효과, 그리고 GK2A와 가이드 위성(GK2B) 사이의 spectral mismatch를
+        제대로 다루지 못해 정확도가 떨어집니다.
+      </p>
+      <p class="en">
+        While GK2A continuously observes the Korean Peninsula, its LST product at ~2km resolution
+        limits fine-grained downstream analysis. Off-the-shelf super-resolution methods designed
+        for natural images fail to handle satellite-specific characteristics — sensor noise,
+        atmospheric effects, and the spectral mismatch between GK2A and the higher-resolution
+        guide sensor (GK2B).
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">접근 방법</span><span class="en">Approach</span></h2>
+
+      <figure class="project-figure">
+        <img src="../images/projects/kma-gdsr-architecture.jpeg" alt="GDSR architecture (DCTRRDBNet)" loading="lazy" />
+        <figcaption><span class="ko">1차년도 초해상화 모델 — Guided Depth Super-Resolution(GDSR), DCTRRDBNet</span><span class="en">Year-1 super-resolution model — Guided Depth Super-Resolution (GDSR), DCTRRDBNet</span></figcaption>
+      </figure>
+
+      <p class="ko">
+        Guided Depth Super-Resolution (GDSR) 관점에서 문제를 재정의하고, 저해상도 GK2A를
+        고해상도 RGB 가이드 영상(GK2B)으로 안내하는 구조로 설계했습니다.
+      </p>
+      <ul class="ko">
+        <li><strong>아키텍처:</strong> <strong>DCTRRDBNet</strong> — DCTNet 기반 + Residual-in-Residual Dense Block + Guided Edge Spatial Attention</li>
+        <li><strong>센서 간 차이 보정:</strong> Difference Learning으로 spectral mismatch 학습</li>
+        <li><strong>후처리:</strong> LightGBM 기반 정확도 향상</li>
+        <li><strong>업샘플 경로:</strong> GK2A(32×32) → ×4(128×128) → ×8(256×256) ≈ GK2B 해상도</li>
+      </ul>
+      <p class="en">
+        We reframed the task as Guided Depth Super-Resolution (GDSR), using the high-res RGB
+        imagery from GK2B to guide the upsampling of low-res GK2A LST.
+      </p>
+      <ul class="en">
+        <li><strong>Architecture:</strong> <strong>DCTRRDBNet</strong> — DCTNet-based with Residual-in-Residual Dense Blocks and a Guided Edge Spatial Attention module</li>
+        <li><strong>Cross-sensor calibration:</strong> Difference Learning to bridge spectral mismatch</li>
+        <li><strong>Post-processing:</strong> LightGBM refinement for further accuracy</li>
+        <li><strong>Upsampling path:</strong> GK2A (32×32) → ×4 (128×128) → ×8 (256×256), matching GK2B</li>
+      </ul>
+      <p class="ko">
+        과제는 3개 phase로 구성됩니다:
+      </p>
+      <ul class="ko">
+        <li><strong>Phase 1 — Clear-Sky 다운스케일링.</strong> 구름이 없는 조건에서 LST 고해상화. <em>(완료)</em></li>
+        <li><strong>Phase 2 — Cloud-Sky 처리.</strong> 구름의 영향을 받는 상황에서의 LST 고해상화. <em>(진행 중)</em></li>
+        <li><strong>Phase 3 — All-Sky 통합 모델.</strong> Clear/Cloud를 통합하는 단일 모델. <em>(예정)</em></li>
+      </ul>
+      <p class="en">
+        The work is organized in three phases:
+      </p>
+      <ul class="en">
+        <li><strong>Phase 1 — Clear-Sky downscaling.</strong> LST super-resolution under cloud-free conditions. <em>(completed)</em></li>
+        <li><strong>Phase 2 — Cloud-Sky handling.</strong> LST super-resolution under cloud-affected conditions. <em>(in progress)</em></li>
+        <li><strong>Phase 3 — All-Sky unified model.</strong> A single model spanning Clear and Cloud regimes. <em>(planned)</em></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="ko">진행 상황 및 성과</span><span class="en">Status &amp; Results</span></h2>
+
+      <figure class="project-figure">
+        <img src="../images/projects/kma-pipeline.jpeg" alt="KMA project full pipeline" loading="lazy" />
+        <figcaption><span class="ko">전체 파이프라인 — (1) 초해상화 → (2) 결측 보간 → (3) 보간 모델 적용 → (4) Light-GBM 차이학습. LST/SST RMSE 목표 달성.</span><span class="en">Full pipeline — (1) super-resolution → (2) gap interpolation → (3) interpolation model → (4) LightGBM difference learning. Achieves the LST/SST RMSE targets.</span></figcaption>
+      </figure>
+
+      <ul class="ko">
+        <li><strong>Phase 1 (Clear-Sky):</strong> 2km → 250m 다운스케일링에서 <strong>LST RMSE ≤ 3K, SST RMSE ≤ 2K</strong> 달성</li>
+        <li><strong>Phase 2 (Cloud-Sky):</strong> 모델 설계 및 학습 진행 중</li>
+        <li>기상청에 <strong>40페이지 이상의 기술 문서</strong> 제출 — 데이터 처리, 모델 설계, 평가 절차 포함</li>
+      </ul>
+      <ul class="en">
+        <li><strong>Phase 1 (Clear-Sky):</strong> Achieved <strong>LST RMSE ≤ 3K and SST RMSE ≤ 2K</strong> on the 2km → 250m task</li>
+        <li><strong>Phase 2 (Cloud-Sky):</strong> Model design and training in progress</li>
+        <li>Delivered <strong>40+ pages of technical documentation</strong> to KMA, covering data processing, model design, and evaluation</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="ko">역할</span><span class="en">My Role</span></h2>
+      <p class="ko">
+        데이터 처리 파이프라인과 모델 설계를 주도하고, 기상청 제출 기술 문서를 작성했습니다.
+        Difference Learning 기반 sensor mismatch 보정 구조를 제안했고, Phase 1 결과 검증을 담당했습니다.
+      </p>
+      <p class="en">
+        Led the data pipeline and model design, and authored the technical documentation submitted to KMA.
+        Proposed the Difference Learning component for sensor-mismatch correction and validated the
+        Phase 1 results.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">팀</span><span class="en">Team</span></h2>
+      <p class="ko"><strong>DAMILAB</strong> (동국대학교) × <strong>기상청 (KMA)</strong></p>
+      <p class="en"><strong>DAMILAB</strong> (Dongguk University) × <strong>Korea Meteorological Administration (KMA)</strong></p>
+    </section>
+
+    <section>
+      <h2><span class="ko">참고 문헌</span><span class="en">References</span></h2>
+      <ol style="padding-left: 1.25rem; margin: 0; color: var(--muted); font-size: 0.9rem;">
+        <li>Zhong, Z. et al. <em>Guided depth map super-resolution: A survey.</em> ACM Computing Surveys, 2023.</li>
+        <li>Zhao, Z. et al. <em>Discrete cosine transform network for guided depth map super-resolution.</em> CVPR, 2022.</li>
+        <li>Ke, G. et al. <em>LightGBM: A highly efficient gradient boosting decision tree.</em> NeurIPS, 2017.</li>
+      </ol>
+    </section>
+
+    <a href="../index.html#projects" class="back-link">
+      <span class="ko">← 프로젝트 목록으로</span>
+      <span class="en">← Back to projects</span>
+    </a>
+
+    <footer>
+      &copy; 2026 Yunseok Lee 이윤석.
+    </footer>
+  </main>
+  <script src="../js/i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trustworthy LLMs: Robustness &amp; Agent Safety — Yunseok Lee 이윤석</title>
+  <meta name="description" content="LLM 위치 취약성 → Agent 간접 프롬프트 주입 → End-to-End 안전성 파이프라인. From positional vulnerability to agent safety." />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lang') || 'ko';
+        document.documentElement.setAttribute('data-lang', saved);
+        document.documentElement.setAttribute('lang', saved);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <main>
+    <nav class="topnav">
+      <div class="nav-links">
+        <a href="../index.html"><span class="ko">← 홈</span><span class="en">← Home</span></a><span class="sep">•</span>
+        <a href="../index.html#publications"><span class="ko">논문</span><span class="en">Publications</span></a><span class="sep">•</span>
+        <a href="../index.html#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a><span class="sep">•</span>
+        <a href="../index.html#contact"><span class="ko">연락처</span><span class="en">Contact</span></a>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </nav>
+
+    <header class="project-header">
+      <p class="project-meta">
+        <span class="tag">PROJECT</span>
+        2025 – <span class="ko">현재</span><span class="en">Present</span>
+        · DAMILAB
+      </p>
+      <h1 class="project-title">
+        <span class="ko">신뢰 가능한 LLM 안전성 연구 라인</span>
+        <span class="en">Trustworthy LLMs: Robustness &amp; Agent Safety</span>
+      </h1>
+      <p class="project-subtitle ko">위치 취약성 분석에서 시작하여 Agent 안전성, 그리고 End-to-End 안전성 파이프라인으로 이어지는 3단계 연구.</p>
+      <p class="project-subtitle en">A research line spanning positional vulnerability analysis, agent-level safety, and an end-to-end LLM safety pipeline.</p>
+    </header>
+
+    <section>
+      <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
+      <p class="ko">
+        DAMILAB에서 진행 중인 LLM 안전성 연구 라인입니다. LLM의 환각·오류·jailbreak가
+        모두 <strong>맥락(context)</strong>에 강하게 의존한다는 관찰에서 출발하여,
+        세 단계로 안전성을 분석·강화하는 것을 목표로 합니다.
+      </p>
+      <p class="en">
+        An ongoing LLM safety research line at DAMILAB. Starting from the observation that LLM
+        failures — hallucination, errors, and jailbreaks — are all heavily context-dependent,
+        we analyze and strengthen LLM safety in three sequential phases.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">3단계 연구 구조</span><span class="en">Three Research Phases</span></h2>
+
+      <p class="ko"><strong>Phase 1 — LLM의 위치 취약성 분석.</strong>
+        프롬프트 내에서 adversarial token이 어디에 삽입되느냐가 jailbreak 성공률을 결정한다는
+        가설을 입증하고, Vulnerable Slot Score(VSS)를 도입한 SlotGCG 공격을 제안.
+        <em>(ICLR 2026 게재)</em>
+      </p>
+      <p class="en"><strong>Phase 1 — Positional vulnerability in LLMs.</strong>
+        We show that the position of an inserted adversarial token within a prompt is itself a
+        decisive factor in jailbreak success, introduce the Vulnerable Slot Score (VSS), and
+        propose SlotGCG, an attack-agnostic position-search mechanism.
+        <em>(Accepted to ICLR 2026)</em>
+      </p>
+
+      <figure class="project-figure">
+        <img src="../images/projects/slotgcg-comparison.png" alt="SlotGCG vs GCG comparison" loading="lazy" />
+        <figcaption><span class="ko">GCG는 suffix에 adversarial token을 고정 삽입하지만, SlotGCG는 VSS로 모든 slot을 평가해 최적 위치에 삽입한다.</span><span class="en">GCG inserts adversarial tokens only at the suffix; SlotGCG scores every slot with VSS and inserts at the most vulnerable positions.</span></figcaption>
+      </figure>
+
+      <figure class="project-figure">
+        <img src="../images/projects/slotgcg-findings.png" alt="SlotGCG empirical findings" loading="lazy" />
+        <figcaption><span class="ko">실증 분석 — 최적 slot은 prompt의 suffix가 아니라 prompt 내부 위치에 분포한다 (50개 prompt 누적 빈도).</span><span class="en">Empirical finding — optimal slots are distributed inside the prompt rather than at the suffix (cumulative frequency over 50 prompts).</span></figcaption>
+      </figure>
+
+      <p class="ko"><strong>Phase 2 — LLM Agent에 대한 안전성 분석.</strong>
+        도구(tool)·API·외부 검색을 사용하는 LLM agent 환경에서 발생하는
+        <em>Indirect Prompt Injection (IPI)</em>을 분석. 외부 데이터에 숨겨진 명령이
+        agent의 추론·행동을 어떻게 우회시키는지 체계적으로 평가.
+        <em>(ICML 2026 FAGEN Workshop 게재)</em>
+        또한 공격 성공을 최종 응답의 노출 여부에 따라 구분하는 CSR·OSR 지표와 ICoA 공격을 제안하고 AgentDojo에서 검증.
+        <em>(EMNLP 2026 Main Conference)</em>
+      </p>
+      <p class="en"><strong>Phase 2 — Agent-level safety.</strong>
+        We study <em>Indirect Prompt Injection (IPI)</em> in tool-using LLM agents, evaluating
+        how malicious instructions hidden in external data can subvert an agent's reasoning and
+        actions across blackbox APIs and Llama 3.3-70B.
+        <em>(Accepted to ICML 2026 FAGEN Workshop)</em>
+        We also distinguish covert and overt successes using CSR and OSR, propose ICoA, and evaluate it on AgentDojo.
+        <em>(EMNLP 2026 Main Conference)</em>
+      </p>
+
+      <figure class="project-figure">
+        <img src="../images/projects/ipi-overview.png" alt="Indirect Prompt Injection threat model" loading="lazy" />
+        <figcaption><span class="ko">IPI 위협 모델 — 공격자가 외부 데이터에 명령을 심으면, agent가 그 데이터를 retrieve하는 순간 명령이 실행되어 도구/API가 악용될 수 있다.</span><span class="en">IPI threat model — when an attacker plants instructions in external data, the agent's retrieval implicitly executes them, potentially weaponizing its tools and APIs.</span></figcaption>
+      </figure>
+
+      <p class="ko"><strong>Phase 3 — End-to-End LLM 안전성 파이프라인.</strong>
+        Phase 1·2의 발견을 통합하여, 단발성 방어가 아닌 입력→추론→행동까지를 연속적으로
+        보호하는 End-to-End safety pipeline 설계. <em>(예정)</em>
+      </p>
+      <p class="en"><strong>Phase 3 — End-to-end LLM safety pipeline.</strong>
+        Integrating the insights from Phases 1 and 2 into a continuous safety pipeline that
+        protects the full chain — input, reasoning, and action — rather than relying on
+        point defenses. <em>(planned)</em>
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">주요 결과</span><span class="en">Key Results</span></h2>
+      <ul class="ko">
+        <li><strong>SlotGCG (Phase 1):</strong> GCG 기반 공격 대비 <strong>ASR +14%</strong>, defense 적용 시 <strong>+42%</strong>, 약 200ms preprocessing만으로 모든 optimization-based 공격에 plug-in 가능</li>
+        <li><strong>IPI 연구 (Phase 2):</strong> tool-using LLM agent에서 covert IPI의 효과·전이성 정량화, agent 환경의 새로운 안전성 평가 프레임 제시</li>
+        <li><strong>ICoA (Phase 2):</strong> 은밀한 공격 평가를 위한 CSR·OSR 지표 제안. AgentDojo의 네 대상 모델에서 가장 강한 기준선 대비 <strong>CSR 3.79–12.01%p 향상</strong></li>
+      </ul>
+      <ul class="en">
+        <li><strong>SlotGCG (Phase 1):</strong> <strong>+14% ASR</strong> over GCG, <strong>+42% ASR</strong> under defenses, with only ~200 ms of preprocessing — plug-in compatible with any optimization-based attack</li>
+        <li><strong>IPI study (Phase 2):</strong> Quantified effectiveness and transferability of covert IPI on tool-using LLM agents; proposed a new safety evaluation frame for the agent setting</li>
+        <li><strong>ICoA (Phase 2):</strong> Introduced CSR and OSR for covert attack evaluation; improved <strong>CSR by 3.79–12.01 percentage points</strong> over the strongest baseline across four target models on AgentDojo</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="ko">관련 논문</span><span class="en">Related Publications</span></h2>
+      <div class="pub">
+        <span class="pub-tag">EMNLP 2026</span>
+        <div class="pub-body">
+          <p class="pub-title">Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</p>
+          <p class="pub-authors"><span class="me">Yunseok Lee</span><sup>*</sup>, Yunji Kim<sup>*</sup>, Woojin Lee</p>
+          <p class="pub-authors"><small><sup>*</sup> <span class="ko">공동 1저자</span><span class="en">Equal contribution</span></small></p>
+          <p class="pub-venue">EMNLP 2026 Main Conference</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener">[arXiv]</a>
+            <a href="https://arxiv.org/pdf/2608.30362" target="_blank" rel="noopener">[PDF]</a>
+          </p>
+        </div>
+      </div>
+      <div class="pub">
+        <span class="pub-tag">ICML-W 2026</span>
+        <div class="pub-body">
+          <p class="pub-title">What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents</p>
+          <p class="pub-authors"><span class="me">Yunseok Lee</span>, Yunji Kim, Woojin Lee</p>
+          <p class="pub-venue">ICML 2026 Workshop on Failure Modes of Agentic AI (FAGEN)</p>
+          <p class="pub-links">
+            <a href="https://openreview.net/forum?id=ozJ54HKqBe" target="_blank" rel="noopener">[OpenReview]</a>
+          </p>
+        </div>
+      </div>
+      <div class="pub">
+        <span class="pub-tag">ICLR 2026</span>
+        <div class="pub-body">
+          <p class="pub-title">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</p>
+          <p class="pub-authors">Seungwon Jeong, Jiwoo Jeong, Hyeonjin Kim, <span class="me">Yunseok Lee</span>, Woojin Lee</p>
+          <p class="pub-venue">The Fourteenth International Conference on Learning Representations (ICLR), 2026</p>
+          <p class="pub-links">
+            <a href="https://openreview.net/forum?id=Fn2rSOnpNf" target="_blank" rel="noopener">[OpenReview]</a>
+            <a href="https://github.com/youai058/SlotGCG" target="_blank" rel="noopener">[Code]</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="ko">역할</span><span class="en">My Role</span></h2>
+      <p class="ko">
+        Phase 2의 ICML FAGEN Workshop 논문(IPI)에서 1저자로서 공격 시나리오 설계, 실험 파이프라인 구축, 결과 분석을 주도.
+        EMNLP 2026 논문(ICoA)에 공동 1저자로 참여.
+        Phase 1(SlotGCG)에서는 공저자로 VSS 검증과 분석에 기여.
+      </p>
+      <p class="en">
+        First author on the Phase 2 ICML FAGEN Workshop paper (IPI): designed attack scenarios, built the experimental
+        pipeline, and led the analysis. Co-first author on the EMNLP 2026 paper (ICoA).
+        Co-author on Phase 1 (SlotGCG), contributing to VSS
+        validation and analysis.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">팀</span><span class="en">Team</span></h2>
+      <p class="ko"><strong>DAMILAB</strong> (동국대학교), <a href="https://damilab.github.io/" target="_blank" rel="noopener">damilab.github.io</a></p>
+      <p class="en"><strong>DAMILAB</strong> (Dongguk University), <a href="https://damilab.github.io/" target="_blank" rel="noopener">damilab.github.io</a></p>
+    </section>
+
+    <a href="../index.html#projects" class="back-link">
+      <span class="ko">← 프로젝트 목록으로</span>
+      <span class="en">← Back to projects</span>
+    </a>
+
+    <footer>
+      &copy; 2026 Yunseok Lee 이윤석.
+    </footer>
+  </main>
+  <script src="../js/i18n.js"></script>
+</body>
+</html>

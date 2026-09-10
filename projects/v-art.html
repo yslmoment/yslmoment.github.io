@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V-ART — VR AI Docent · Yunseok Lee 이윤석</title>
+  <meta name="description" content="LLM/RAG 기반 VR AI 도슨트 시스템. LLM-based AI docent for VR environments with RAG and semantic search." />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('lang') || 'ko';
+        document.documentElement.setAttribute('data-lang', saved);
+        document.documentElement.setAttribute('lang', saved);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <main>
+    <nav class="topnav">
+      <div class="nav-links">
+        <a href="../index.html"><span class="ko">← 홈</span><span class="en">← Home</span></a><span class="sep">•</span>
+        <a href="../index.html#publications"><span class="ko">논문</span><span class="en">Publications</span></a><span class="sep">•</span>
+        <a href="../index.html#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a><span class="sep">•</span>
+        <a href="../index.html#contact"><span class="ko">연락처</span><span class="en">Contact</span></a>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </nav>
+
+    <header class="project-header">
+      <p class="project-meta">
+        <span class="tag">PROJECT</span>
+        2024.09 – 2025.06
+        · <span class="ko">학부 연구 / DAMILAB</span><span class="en">Undergraduate Research / DAMILAB</span>
+      </p>
+      <h1 class="project-title">V-ART <span style="color: var(--muted); font-weight: 500; font-size: 0.7em;"><span class="ko">— VR AI 도슨트</span><span class="en">— VR AI Docent</span></span></h1>
+      <p class="project-subtitle ko">VR 환경에서 작동하는 LLM·RAG 기반 AI 도슨트 시스템. 작품 맥락 인지와 자연스러운 대화형 안내 제공.</p>
+      <p class="project-subtitle en">An LLM/RAG-based AI docent for VR exhibitions, providing context-aware artwork guidance through natural dialogue.</p>
+    </header>
+
+    <section>
+      <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
+      <p class="ko">
+        VR 환경에서 사용자가 작품 앞에 섰을 때, AI 도슨트가 해당 작품의 맥락을 이해하고
+        자연스러운 대화로 안내해주는 시스템. LLM의 일반 지식을 RAG로 보강하여
+        작품별 정확한 정보를 제공하면서도 사용자의 질문에 유연하게 응답할 수 있도록 설계.
+      </p>
+      <p class="en">
+        A VR-based AI docent that, when a user faces an artwork, understands the artwork's
+        context and guides the visitor through natural dialogue. Combines an LLM's general
+        knowledge with RAG over artwork-specific data so the system provides accurate
+        per-artwork facts while remaining flexible enough to respond to free-form questions.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">동기</span><span class="en">Motivation</span></h2>
+      <p class="ko">
+        기존 VR 도슨트는 사전 녹음된 대본 재생 수준에 머물러, 사용자 질문이나 시선이 향한
+        작품에 맞춰 동적으로 안내할 수 없었습니다. LLM을 그대로 붙이면 환각·일반화 오류가
+        문제가 되고, 통신 latency가 VR 몰입감을 크게 해치는 한계가 있었습니다.
+      </p>
+      <p class="en">
+        Prior VR docents were essentially scripted audio playback — unable to adapt to user
+        questions or to whichever artwork the user was looking at. Naively bolting an LLM on
+        introduces hallucinations and generic answers, and the round-trip latency badly hurts
+        VR immersion.
+      </p>
+    </section>
+
+    <section>
+      <h2><span class="ko">접근 방법</span><span class="en">Approach</span></h2>
+
+      <figure class="project-figure">
+        <img src="../images/projects/vart-architecture.png" alt="V-ART system architecture" loading="lazy" />
+        <figcaption><span class="ko">시스템 아키텍처 — Semantic Content Generation Pipeline(작품 metadata → LMM → LLM → Vector DB) + RAG-based Art Query Pipeline.</span><span class="en">System architecture — a Semantic Content Generation Pipeline (artwork metadata → LMM → LLM → Vector DB) feeding a RAG-based Art Query Pipeline at runtime.</span></figcaption>
+      </figure>
+
+      <ul class="ko">
+        <li><strong>AI 도슨트 코어:</strong> LLM + RAG로 작품별 맥락에 기반한 응답 생성</li>
+        <li><strong>Semantic Search 기반 검색:</strong> 작품 메타데이터·해설 corpus에서 의미 기반 검색</li>
+        <li><strong>VR 클라이언트 ↔ AI 서버 분리:</strong> latency-aware 아키텍처로 VR 측 응답성 유지</li>
+        <li><strong>RAG 파이프라인 최적화:</strong> 인덱싱·재정렬·캐싱으로 응답 시간 최소화</li>
+      </ul>
+      <ul class="en">
+        <li><strong>AI docent core:</strong> LLM + RAG generating responses grounded in artwork-specific context</li>
+        <li><strong>Semantic Search retrieval:</strong> Semantic search over artwork metadata and commentary corpora</li>
+        <li><strong>VR client / AI server split:</strong> A latency-aware architecture that preserves VR responsiveness</li>
+        <li><strong>RAG pipeline optimization:</strong> Indexing, reranking, and caching to minimize response time</li>
+      </ul>
+
+      <figure class="project-figure">
+        <img src="../images/projects/vart-museum-ui.jpeg" alt="V-ART museum browse UI" loading="lazy" />
+        <figcaption><span class="ko">VR 미술관 목록 UI — 사용자가 작품을 선택하면 AI 도슨트가 작품 맥락에 맞는 대화로 안내한다.</span><span class="en">VR museum browse UI — selecting an artwork hands off to the AI docent for context-grounded dialogue.</span></figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2><span class="ko">결과</span><span class="en">Results</span></h2>
+      <ul class="ko">
+        <li>VR 환경에서 작품별 맥락에 맞는 안내가 가능한 AI 도슨트 프로토타입 완성</li>
+        <li>Semantic Search 도입으로 LLM 응답 품질 향상</li>
+        <li>RAG 파이프라인 최적화를 통해 응답 지연을 <strong>약 10배 단축</strong></li>
+      </ul>
+      <ul class="en">
+        <li>Built a working VR AI docent prototype delivering artwork-grounded guidance</li>
+        <li>Semantic Search noticeably improved LLM response quality</li>
+        <li>Pipeline optimization reduced response latency by <strong>~10×</strong></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="ko">역할</span><span class="en">My Role</span></h2>
+      <p class="ko">백엔드 및 AI 파트 담당 (팀장). LLM/RAG 파이프라인 설계, Semantic Search 도입, VR 클라이언트 ↔ AI 서버 통신 구조 설계.</p>
+      <p class="en">Backend &amp; AI lead (team lead). Designed the LLM/RAG pipeline, introduced semantic search, and structured the VR client ↔ AI server communication.</p>
+    </section>
+
+    <a href="../index.html#projects" class="back-link">
+      <span class="ko">← 프로젝트 목록으로</span>
+      <span class="en">← Back to projects</span>
+    </a>
+
+    <footer>
+      &copy; 2026 Yunseok Lee 이윤석.
+    </footer>
+  </main>
+  <script src="../js/i18n.js"></script>
+</body>
+</html>
