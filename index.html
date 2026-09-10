@@ -1,184 +1,170 @@
 <!doctype html>
-<html lang="ko" data-lang="ko">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yunseok Lee 이윤석 — AI Safety Researcher</title>
-  <meta name="description" content="동국대학교 인공지능전공 석사과정. AI Safety, Agentic RAG 연구. M.S. student at Dongguk University, DAMILAB." />
+  <meta name="description" content="AI Safety and LLM Agent research by Yunseok Lee, an M.S. student in AI at Dongguk University and a member of DAMILAB." />
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem('lang') || 'ko';
+        var saved = localStorage.getItem('lang') === 'ko' ? 'ko' : 'en';
         document.documentElement.setAttribute('data-lang', saved);
         document.documentElement.setAttribute('lang', saved);
       } catch (e) {}
     })();
   </script>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
-<body>
-  <main>
-    <nav class="topnav">
-      <div class="nav-links">
-        <a href="#about"><span class="ko">소개</span><span class="en">About</span></a><span class="sep">•</span>
-        <a href="#news"><span class="ko">소식</span><span class="en">News</span></a><span class="sep">•</span>
-        <a href="#research"><span class="ko">연구</span><span class="en">Research</span></a><span class="sep">•</span>
-        <a href="#publications"><span class="ko">논문</span><span class="en">Publications</span></a><span class="sep">•</span>
-        <a href="#awards"><span class="ko">수상·장학</span><span class="en">Awards</span></a><span class="sep">•</span>
-        <a href="#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a><span class="sep">•</span>
-        <a href="#education"><span class="ko">학력</span><span class="en">Education</span></a><span class="sep">•</span>
-        <a href="#experience"><span class="ko">경력</span><span class="en">Experience</span></a><span class="sep">•</span>
+<body class="home">
+  <a class="skip-link" href="#main-content"><span class="ko">본문으로 건너뛰기</span><span class="en">Skip to content</span></a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="wordmark" href="#about">Yunseok Lee<span aria-hidden="true">.</span></a>
+      <div class="nav-links" id="primary-menu">
+        <a href="#news"><span class="ko">소식</span><span class="en">News</span></a>
+        <a href="#publications"><span class="ko">논문</span><span class="en">Publications</span></a>
+        <a href="#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
+        <a href="#awards"><span class="ko">수상·장학</span><span class="en">Awards</span></a>
         <a href="#contact"><span class="ko">연락처</span><span class="en">Contact</span></a>
       </div>
-      <div class="lang-toggle">
-        <button class="lang-btn" data-lang="ko">한국어</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" type="button" data-lang="ko">한국어</button>
+          <button class="lang-btn" type="button" data-lang="en">EN</button>
+        </div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" hidden>
+          <span class="ko">메뉴</span><span class="en">Menu</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+        </button>
       </div>
-    </nav>
-
-    <header>
-      <div>
+    </div>
+  </nav>
+  <main id="main-content" tabindex="-1">
+    <header id="about" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI SAFETY &amp; TRUSTWORTHY AGENTS</p>
         <h1>Yunseok Lee <span class="kr">이윤석</span></h1>
         <p class="affil ko">
           동국대학교 컴퓨터AI학과 인공지능전공 석사과정<br>
-          <a href="https://damilab.github.io/" target="_blank" rel="noopener">DAMILAB</a>, 서울
+          <a href="https://damilab.github.io/" target="_blank" rel="noopener">DAMILAB</a> · Data Analyze &amp; Machine Intelligence Lab
         </p>
         <p class="affil en">
           M.S. Student, Department of Computer Science and AI<br>
-          <a href="https://damilab.github.io/" target="_blank" rel="noopener">DAMILAB</a>, Dongguk University, Seoul, Korea
+          <a href="https://damilab.github.io/" target="_blank" rel="noopener">DAMILAB</a> · Dongguk University
         </p>
+        <div class="hero-bio bio">
+          <p class="ko"><strong>AI Safety</strong>와 <strong>LLM Agent</strong>를 중심으로 신뢰할 수 있고 안전한 AI 시스템을 연구합니다.
+            특히 도구를 사용하는 LLM Agent의 간접 프롬프트 주입과 안전성 평가에 관심이 있습니다.</p>
+          <p class="en">My research focuses on <strong>AI Safety</strong> and <strong>LLM Agent</strong> systems,
+            with a focus on indirect prompt injection and safety evaluation for tool-using LLM agents.</p>
+          <p class="ko">주저자로 참여한 <a href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener"><em>Will the User Ever Know?</em></a>는 <strong>EMNLP 2026 메인 컨퍼런스</strong>에,
+            공저자로 참여한 <em>SlotGCG</em>는 <strong>ICLR 2026</strong>에 게재 승인되었습니다.</p>
+          <p class="en">I am a lead author of <a href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener"><em>Will the User Ever Know?</em></a>, accepted to the <strong>EMNLP 2026 Main Conference</strong>,
+            and a co-author of <em>SlotGCG</em>, accepted to <strong>ICLR 2026</strong>.</p>
+        </div>
+        <ul class="research-keywords" aria-label="Research areas">
+          <li>AI Safety</li><li>LLM Agent</li><li>Trustworthy ML</li>
+        </ul>
         <p class="socials">
-          <a href="https://github.com/yslmoment" target="_blank" rel="noopener">GitHub</a> ·
-          <a href="#" target="_blank" rel="noopener">Google Scholar</a> ·
-          <a href="https://www.linkedin.com/in/yunseok-lee-b6945a385/" target="_blank" rel="noopener">LinkedIn</a> ·
-          <a href="https://www.instagram.com/yslmoment/" target="_blank" rel="noopener">Instagram</a>
+          <a class="contact-primary" href="mailto:yslee0005@dgu.ac.kr">Email <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/yslmoment" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://www.linkedin.com/in/yunseok-lee-b6945a385/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://scholar.google.com/citations?user=MJWF2YEAAAAJ&amp;hl=ko" target="_blank" rel="noopener">Google Scholar <span aria-hidden="true">↗</span></a>
         </p>
+        <details id="research" class="research-details">
+          <summary><span class="ko">연구 관심사 자세히</span><span class="en">More about my research</span></summary>
+          <ul class="research-list ko">
+            <li>
+              <div class="research-title">AI Safety &amp; 적대적 강건성</div>
+              <div class="research-desc">
+                대규모 언어 모델(LLM)의 실패 모드를 이해하고 완화하는 연구.
+                적대적 공격(adversarial attack)과 안전하지 않은 생성을 포함합니다.
+              </div>
+            </li>
+            <li>
+              <div class="research-title">LLM Agent</div>
+              <div class="research-desc">
+                외부 지식과 도구를 활용해 작업을 수행하는 LLM Agent의 설계와 안전성 평가.
+                추론부터 도구 호출·행동 실행까지 통제 가능하고 검증 가능한 시스템 연구.
+              </div>
+            </li>
+            <li>
+              <div class="research-title">실세계 도메인을 위한 신뢰 가능한 ML</div>
+              <div class="research-desc">
+                위성 기반 표면온도 초해상화와 관측 데이터 간 차이 보정 등
+                실제 환경 데이터의 해상도·결측·분포 차이를 다루는 ML 연구.
+              </div>
+            </li>
+          </ul>
+          <ul class="research-list en">
+            <li>
+              <div class="research-title">AI Safety &amp; Adversarial Robustness</div>
+              <div class="research-desc">
+                Understanding and mitigating failure modes of large language models,
+                including adversarial attacks and unsafe generations.
+              </div>
+            </li>
+            <li>
+              <div class="research-title">LLM Agent</div>
+              <div class="research-desc">
+                Designing and evaluating LLM agents that use external knowledge and tools,
+                with controllable and verifiable reasoning, tool use, and action execution.
+              </div>
+            </li>
+            <li>
+              <div class="research-title">Trustworthy ML for Real-world Domains</div>
+              <div class="research-desc">
+                Developing ML methods for satellite surface temperature super-resolution,
+                missing observations, and distribution gaps between satellite and ground data.
+              </div>
+            </li>
+          </ul>
+          <p class="ko">한국기상산업기술원(기상청) 과제에서 위성 기반 지표면·해수면 온도의 초해상화와 지상 관측 기반 보정도 연구하고 있습니다.</p>
+          <p class="en">I also research satellite-based land and sea surface temperature super-resolution and ground-observation calibration in a Korea Meteorological Institute project under KMA.</p>
+        </details>
       </div>
-      <img class="photo" src="images/profile.png" alt="Yunseok Lee" />
+      <figure class="hero-portrait">
+        <img class="photo" src="images/profile.png" alt="Yunseok Lee" width="180" height="220" fetchpriority="high" />
+        <figcaption><span class="ko">서울, 대한민국</span><span class="en">Seoul, South Korea</span></figcaption>
+      </figure>
     </header>
 
-    <section id="about" class="bio">
-      <h2><span class="ko">소개</span><span class="en">About</span></h2>
-      <div class="ko">
-        <p>
-          저는 <strong>동국대학교</strong> 인공지능전공 석사과정에 재학 중이며,
-          <a href="https://damilab.github.io/" target="_blank" rel="noopener">DAMILAB</a>(Data Analyze &amp; Machine Intelligence Lab)에 소속되어 있습니다.
-          <strong>AI Safety</strong>와 <strong>Agentic RAG</strong>를 중심으로,
-          신뢰할 수 있고 안전한 AI 시스템을 만드는 데 관심이 있습니다.
-        </p>
-        <p>
-          최근 주저자로 참여한 논문 <em>Will the User Ever Know?</em>가 <strong>EMNLP 2026 메인 컨퍼런스</strong>에,
-          공저자로 참여한 <em>SlotGCG</em>가 <strong>ICLR 2026</strong>에 게재 승인되었습니다.
-          또한 한국기상산업기술원(기상청) 과제에서 위성 기반 지표면·해수면 온도의 초해상화와 지상 관측 기반 보정을 연구하고 있습니다.
-        </p>
-        <p>
-          연구 협업이나 논의는 언제든 환영합니다 —
-          <a href="mailto:yslee0005@dgu.ac.kr">이메일</a>로 편하게 연락 주세요.
-        </p>
-      </div>
-      <div class="en">
-        <p>
-          I am a Master's student in the AI program at <strong>Dongguk University</strong>,
-          affiliated with <a href="https://damilab.github.io/" target="_blank" rel="noopener">DAMILAB</a> (Data Analyze &amp; Machine Intelligence Lab).
-          My research centers on <strong>AI Safety</strong> and <strong>Agentic RAG</strong>,
-          toward AI systems that are reliable, robust, and trustworthy.
-        </p>
-        <p>
-          I am a lead author of <em>Will the User Ever Know?</em>, accepted to the <strong>EMNLP 2026 Main Conference</strong>,
-          and a co-author of <em>SlotGCG</em>, accepted to <strong>ICLR 2026</strong>.
-          I also work on satellite-based land and sea surface temperature super-resolution and ground-observation calibration in a Korea Meteorological Institute project under the Korea Meteorological Administration.
-        </p>
-        <p>
-          I am always open to research collaborations and discussions — feel free to reach out via
-          <a href="mailto:yslee0005@dgu.ac.kr">email</a>.
-        </p>
-      </div>
-    </section>
-
     <section id="news">
-      <h2><span class="ko">소식</span><span class="en">News</span></h2>
+      <h2><span class="ko">최근 소식</span><span class="en">Latest News</span></h2>
       <ul class="news">
         <li class="ko">
           <span class="date">2026.08</span>
-          <span class="news-body"><strong>주저자</strong>로 참여한 <strong>EMNLP 2026 메인 컨퍼런스</strong> 논문 <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>“Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents”</em></a>이 arXiv에 공개되었습니다.</span>
+          <span class="news-body">주저자 논문 <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>Will the User Ever Know?</em></a> (<strong>EMNLP 2026 메인 컨퍼런스</strong>)가 arXiv에 공개되었습니다.</span>
         </li>
         <li class="en">
           <span class="date">2026.08</span>
-          <span class="news-body">Our <strong>EMNLP 2026 Main Conference</strong> paper <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>“Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents”</em></a> (<strong>lead author</strong>) is now available on arXiv.</span>
+          <span class="news-body"><a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>Will the User Ever Know?</em></a> (<strong>EMNLP 2026 Main Conference</strong>, lead author) is now on arXiv.</span>
         </li>
         <li class="ko">
           <span class="date">2026.06</span>
-          <span class="news-body"><strong>서울미래인재재단</strong>의 <strong>AI 서울테크 장학금</strong>에 선정되어 <strong>총 2,000만 원</strong>의 연구 지원을 받게 되었습니다.</span>
+          <span class="news-body"><strong>서울미래인재재단 AI 서울테크 장학금</strong>에 선정되어 <strong>총 2,000만 원</strong>의 연구 지원을 받게 되었습니다.</span>
         </li>
         <li class="en">
           <span class="date">2026.06</span>
-          <span class="news-body">I was awarded the <strong>AI Seoul Tech Scholarship</strong> by the <strong>Seoul Future Foundation</strong>, with total research funding of <strong>KRW 20 million</strong>.</span>
+          <span class="news-body">Awarded the <strong>AI Seoul Tech Scholarship</strong> by the Seoul Future Foundation, with total research funding of <strong>KRW 20 million</strong>.</span>
         </li>
         <li class="ko">
           <span class="date">2026.05</span>
-          <span class="news-body"><strong>주저자</strong>로 참여한 논문 <em>“What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents”</em>이 <strong>ICML 2026 FAGEN Workshop</strong>에 게재 승인되었습니다.</span>
+          <span class="news-body">주저자 논문 <em>What Did You Do Behind My Back?!</em>이 <strong>ICML 2026 FAGEN Workshop</strong>에 게재 승인되었습니다.</span>
         </li>
         <li class="en">
           <span class="date">2026.05</span>
-          <span class="news-body">Our paper <em>“What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents”</em> (<strong>lead author</strong>) has been accepted to the <strong>ICML 2026 FAGEN Workshop</strong>.</span>
+          <span class="news-body"><em>What Did You Do Behind My Back?!</em> (lead author) was accepted to the <strong>ICML 2026 FAGEN Workshop</strong>.</span>
         </li>
         <li class="ko">
           <span class="date">2026.01</span>
-          <span class="news-body"><strong>4저자</strong>로 참여한 논문 <em>“SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks”</em>이 <strong>ICLR 2026</strong>에 게재 승인되었습니다.</span>
+          <span class="news-body">4저자로 참여한 <em>SlotGCG</em>가 <strong>ICLR 2026</strong>에 게재 승인되었습니다.</span>
         </li>
         <li class="en">
           <span class="date">2026.01</span>
-          <span class="news-body">Our paper <em>“SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks”</em> (<strong>4th author</strong>) has been accepted to <strong>ICLR 2026</strong>.</span>
-        </li>
-      </ul>
-    </section>
-
-    <section id="research">
-      <h2><span class="ko">연구 관심사</span><span class="en">Research Interests</span></h2>
-      <ul class="research-list ko">
-        <li>
-          <div class="research-title">AI Safety &amp; 적대적 강건성</div>
-          <div class="research-desc">
-            대규모 언어 모델(LLM)의 실패 모드를 이해하고 완화하는 연구.
-            적대적 공격(adversarial attack)과 안전하지 않은 생성을 포함합니다.
-          </div>
-        </li>
-        <li>
-          <div class="research-title">Agentic RAG</div>
-          <div class="research-desc">
-            외부 지식을 안정적으로 추론에 활용하면서도 통제 가능하고 검증 가능한
-            retrieval-augmented agent 설계.
-          </div>
-        </li>
-        <li>
-          <div class="research-title">실세계 도메인을 위한 신뢰 가능한 ML</div>
-          <div class="research-desc">
-            위성 기반 표면온도 초해상화와 관측 데이터 간 차이 보정 등
-            실제 환경 데이터의 해상도·결측·분포 차이를 다루는 ML 연구.
-          </div>
-        </li>
-      </ul>
-      <ul class="research-list en">
-        <li>
-          <div class="research-title">AI Safety &amp; Adversarial Robustness</div>
-          <div class="research-desc">
-            Understanding and mitigating failure modes of large language models,
-            including adversarial attacks and unsafe generations.
-          </div>
-        </li>
-        <li>
-          <div class="research-title">Agentic RAG</div>
-          <div class="research-desc">
-            Designing retrieval-augmented agents that reason reliably over external knowledge
-            while remaining controllable and verifiable.
-          </div>
-        </li>
-        <li>
-          <div class="research-title">Trustworthy ML for Real-world Domains</div>
-          <div class="research-desc">
-            Developing ML methods for satellite surface temperature super-resolution,
-            missing observations, and distribution gaps between satellite and ground data.
-          </div>
+          <span class="news-body"><em>SlotGCG</em> (4th author) was accepted to <strong>ICLR 2026</strong>.</span>
         </li>
       </ul>
     </section>
@@ -186,13 +172,19 @@
     <section id="publications">
       <h2><span class="ko">논문</span><span class="en">Publications</span></h2>
       <div class="pub">
-        <span class="pub-tag">EMNLP 2026</span>
+        <a class="pub-figure" href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener">
+          <img src="images/publications/icoa-overview.png" alt="ICoA: overt and covert attacks compared through agent actions and user-visible responses" width="1293" height="431" loading="lazy" />
+          <span>ICoA · <span class="ko">프로젝트 보기</span><span class="en">View project</span> <span aria-hidden="true">↗</span></span>
+        </a>
         <div class="pub-body">
+          <div class="pub-meta"><span class="pub-tag">EMNLP 2026 · Main</span><span class="pub-role"><span class="ko">주저자</span><span class="en">Lead author</span></span></div>
           <p class="pub-title">Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</p>
           <p class="pub-authors">
             <span class="me">Yunseok Lee</span>, Yunji Kim, Woojin Lee
           </p>
           <p class="pub-venue">EMNLP 2026 Main Conference</p>
+          <p class="pub-summary ko">도구 사용 Agent의 공격 성공과 사용자에게 드러나는 정도를 구분하여 은밀한 간접 프롬프트 주입을 평가합니다.</p>
+          <p class="pub-summary en">Evaluating covert indirect prompt injection by separating attack success from what a tool-using agent reveals to its user.</p>
           <div class="pub-links">
             <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener">[arXiv]</a>
             <a href="https://arxiv.org/pdf/2608.30362" target="_blank" rel="noopener">[PDF]</a>
@@ -214,13 +206,20 @@
         </div>
       </div>
       <div class="pub">
-        <span class="pub-tag">ICML-W 2026</span>
+        <a class="pub-figure pub-figure-text" href="https://openreview.net/forum?id=ozJ54HKqBe" target="_blank" rel="noopener">
+          <span class="paper-kicker">ICML 2026 · FAGEN</span>
+          <strong>What Did You Do<br>Behind My Back?!</strong>
+          <span><span class="ko">워크숍 논문 보기</span><span class="en">Read workshop paper</span> <span aria-hidden="true">↗</span></span>
+        </a>
         <div class="pub-body">
+          <div class="pub-meta"><span class="pub-tag">ICML 2026 · Workshop</span><span class="pub-role"><span class="ko">주저자</span><span class="en">Lead author</span></span></div>
           <p class="pub-title">What Did You Do Behind My Back?! Covert Indirect Prompt Injection on Tool-Using LLM Agents</p>
           <p class="pub-authors">
             <span class="me">Yunseok Lee</span>, Yunji Kim, Woojin Lee
           </p>
           <p class="pub-venue">ICML 2026 Workshop on Failure Modes of Agentic AI (FAGEN)</p>
+          <p class="pub-summary ko">사용자가 알아차리기 어려운 도구 사용 LLM Agent의 간접 프롬프트 주입 공격을 연구합니다.</p>
+          <p class="pub-summary en">Studying indirect prompt injection attacks on tool-using LLM agents that can go unnoticed by users.</p>
           <div class="pub-links">
             <a href="https://openreview.net/forum?id=ozJ54HKqBe" target="_blank" rel="noopener">[OpenReview]</a>
             <details class="pub-bibtex">
@@ -237,13 +236,19 @@
         </div>
       </div>
       <div class="pub">
-        <span class="pub-tag">ICLR 2026</span>
+        <a class="pub-figure" href="https://openreview.net/forum?id=Fn2rSOnpNf" target="_blank" rel="noopener">
+          <img src="images/projects/slotgcg-comparison.png" alt="SlotGCG versus GCG: selecting vulnerable positions instead of always using the suffix" loading="lazy" />
+          <span>SlotGCG · <span class="ko">논문 보기</span><span class="en">Read paper</span> <span aria-hidden="true">↗</span></span>
+        </a>
         <div class="pub-body">
+          <div class="pub-meta"><span class="pub-tag">ICLR 2026</span><span class="pub-role pub-role-secondary"><span class="ko">공저자</span><span class="en">Co-author</span></span></div>
           <p class="pub-title">SlotGCG: Exploiting the Positional Vulnerability in LLMs for Jailbreak Attacks</p>
           <p class="pub-authors">
             Seungwon Jeong, Jiwoo Jeong, Hyeonjin Kim, <span class="me">Yunseok Lee</span>, Woojin Lee
           </p>
           <p class="pub-venue">The Fourteenth International Conference on Learning Representations (ICLR), 2026</p>
+          <p class="pub-summary ko">프롬프트 내부의 위치별 취약성을 분석하고, 취약한 위치에 공격 토큰을 배치하는 탈옥 방법을 제안합니다.</p>
+          <p class="pub-summary en">Analyzing positional vulnerabilities inside prompts to place adversarial tokens at vulnerable slots.</p>
           <div class="pub-links">
             <a href="https://openreview.net/forum?id=Fn2rSOnpNf" target="_blank" rel="noopener">[OpenReview]</a>
             <a href="https://github.com/youai058/SlotGCG" target="_blank" rel="noopener">[Code]</a>
@@ -259,6 +264,93 @@
             </details>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2><span class="ko">연구 과제 및 프로젝트</span><span class="en">Research &amp; Projects</span></h2>
+      <h3 class="project-group-title"><span class="ko">연구 과제</span><span class="en">Research Projects</span></h3>
+      <div class="entry project-entry">
+        <div class="entry-main">
+          <a href="projects/agentic-rag.html" class="proj-link"><strong><span class="ko">윤리적인 다국어 LLM 활용을 위한 Context 기반 탈옥 가드레일 구축</span><span class="en">Context-Based Jailbreak Guardrails for Ethical Multilingual LLM Use</span></strong></a>
+          <div class="entry-role ko">
+            한국연구재단 우수신진연구(과학기술정보통신부) · 참여연구원
+          </div>
+          <div class="entry-role en">
+            National Research Foundation of Korea (MSIT) · Participating researcher
+          </div>
+          <p class="entry-summary ko">다국어 유해·무해 데이터와 문맥 기반 평가를 바탕으로 화이트박스·블랙박스 탈옥 공격 및 가드레일을 연구.
+            SlotGCG(ICLR 2026)의 VSS 실험·평가에 기여했으며, 도구 사용 LLM Agent의 안전성으로 발전시킨 후속 연구는 <a href="projects/agentic-rag.html#emnlp-research">EMNLP 2026 메인 컨퍼런스 주저자 논문</a>으로 이어짐.</p>
+          <p class="entry-summary en">Research on multilingual safety data, context-aware evaluation, white-box and black-box jailbreaks, and guardrails.
+            Contributed to VSS experiments and evaluation for SlotGCG (ICLR 2026); follow-up research on tool-using agent safety led to a <a href="projects/agentic-rag.html#emnlp-research">lead-author paper accepted to the EMNLP 2026 Main Conference</a>.</p>
+          <a class="project-more" href="projects/agentic-rag.html"><span class="ko">연구 내용과 기여</span><span class="en">Research &amp; contributions</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="entry-date">2025.09 – 2027.08<small><span class="ko">종료 예정</span><span class="en">Expected end</span></small></div>
+      </div>
+      <div class="entry project-entry">
+        <div class="entry-main">
+          <a href="projects/kma.html" class="proj-link"><strong><span class="ko">인공지능 기반 표면온도(지표면, 해수면) 초해상화 기술 개발</span><span class="en">Development of AI-Based Super-Resolution for Land and Sea Surface Temperature</span></strong></a>
+          <div class="entry-role ko">
+            한국기상산업기술원(기상청) · 참여연구원
+          </div>
+          <div class="entry-role en">
+            Korea Meteorological Institute (KMI) / KMA · Participating researcher
+          </div>
+          <p class="entry-summary ko">GK2A·GK2B 위성 데이터를 활용한 초해상화와 지상 관측 기반 Difference Learning 보정.
+            40만 건 이상의 데이터 전처리 및 차이학습 구조 제안에 기여. 2km → 250m 해상도 향상과 1차년도 RMSE 3K 이하 목표 달성.</p>
+          <p class="entry-summary en">Guided super-resolution using GK2A/GK2B data, calibrated against ground observations through difference learning.
+            Contributed preprocessing of 400,000+ records and the calibration design; achieved 2km → 250m resolution and the year-one RMSE target of ≤3K.</p>
+          <a class="project-more" href="projects/kma.html"><span class="ko">연구 내용과 기여</span><span class="en">Research &amp; contributions</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="entry-date">2025.04 – 2027.08<small><span class="ko">종료 예정</span><span class="en">Expected end</span></small></div>
+      </div>
+      <h3 class="project-group-title"><span class="ko">산학·개발 프로젝트</span><span class="en">Industry &amp; Development Projects</span></h3>
+      <div class="entry project-entry">
+        <div class="entry-main">
+          <a href="projects/v-art.html" class="proj-link"><strong><span class="ko">가상현실 크로스플랫폼 미술관 V-ART</span><span class="en">V-ART: Cross-Platform Virtual Reality Art Museum</span></strong></a>
+          <div class="entry-role ko">
+            동국대학교 종합설계 프로젝트 / ㈜요요인터렉티브 · 데이터베이스 구축 및 서버 개발
+          </div>
+          <div class="entry-role en">
+            Dongguk University capstone / YOYO Interactive · Database and server development
+          </div>
+          <p class="entry-summary ko">작품 이미지·메타데이터를 벡터화하고, Semantic Search와 LLM 기반 설명 생성을 연결한 AI 도슨트 구현.
+            VR 클라이언트와 AI 서버 간 응답 지연을 고려해 RAG 데이터베이스를 구축한 10개월 산학 프로젝트.</p>
+          <p class="entry-summary en">Built an AI docent using artwork image/metadata embeddings, semantic retrieval, and LLM-generated explanations.
+            Developed a RAG database with VR client–AI server latency in mind during a ten-month industry–university project.</p>
+          <a class="project-more" href="projects/v-art.html"><span class="ko">프로젝트 자세히</span><span class="en">Project details</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="entry-date">2024.09 – 2025.06</div>
+      </div>
+      <div class="entry project-entry">
+        <div class="entry-main">
+          <a href="projects/enc.html" class="proj-link"><strong><span class="ko">‘루크온’ E-N-C 기반 위험 대응 및 안심 캠퍼스 구축 시스템</span><span class="en">E-N-C Campus Risk Response and Safety System</span></strong></a>
+          <div class="entry-role ko">
+            동국대학교 AI융합대학 해커톤 ICONICTHON(아코톤) · 인프라 구축 및 프론트엔드 개발
+          </div>
+          <div class="entry-role en">
+            ICONICTHON Hackathon, College of AI Convergence, Dongguk University · Infrastructure and frontend development
+          </div>
+          <p class="entry-summary ko">IoT·Wi-Fi·사용자 참여 데이터를 통합하여 실시간 밀집도 분석, 위험 구역 탐지, 모바일 신고 기능을 구현.
+            실제 캠퍼스 테스트베드 데이터를 활용했으며 <strong>2024년 해커톤 ICONICTHON(아코톤) 대상</strong> 수상.</p>
+          <p class="entry-summary en">Integrated IoT, Wi-Fi, and user-submitted data for crowd-density analysis, risk detection, and mobile incident reporting.
+            Used real campus testbed data and received the <strong>ICONICTHON 2024 Hackathon Grand Prize</strong>.</p>
+          <a class="project-more" href="projects/enc.html"><span class="ko">프로젝트 자세히</span><span class="en">Project details</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="entry-date">2024.11</div>
+      </div>
+      <div class="entry project-entry">
+        <div class="entry-main">
+          <a href="projects/safe-companion.html" class="proj-link"><strong><span class="ko">시각장애인을 위한 보안관 안심 동행 및 장애인 편의시설 안내서비스</span><span class="en">Safe Companion and Accessible Facility Guide for People with Visual Impairments</span></strong></a>
+          <div class="entry-role ko">미래내일 일경험 사업(고용노동부) / ㈜씨티아이앤씨 · 디자인 및 프론트엔드 개발</div>
+          <div class="entry-role en">Ministry of Employment and Labor work experience program / 씨티아이앤씨 · Design and frontend development</div>
+          <p class="entry-summary ko">공공데이터와 GPS를 결합한 실시간 위험 구역 알림 및 이동 지원 서비스.
+            TTS와 온디바이스 음성인식을 연결해 음성으로 조작 가능한 사용자 화면을 구현.</p>
+          <p class="entry-summary en">Combined public data and GPS for context-aware risk alerts and mobility assistance.
+            Implemented voice-operated interfaces using text-to-speech and on-device speech recognition.</p>
+          <a class="project-more" href="projects/safe-companion.html"><span class="ko">프로젝트 자세히</span><span class="en">Project details</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="entry-date">2024.08 – 2024.09</div>
       </div>
     </section>
 
@@ -288,88 +380,7 @@
       </div>
     </section>
 
-    <section id="projects">
-      <h2><span class="ko">연구 과제 및 프로젝트</span><span class="en">Research &amp; Projects</span></h2>
-      <h3 class="project-group-title"><span class="ko">연구 과제</span><span class="en">Research Projects</span></h3>
-      <div class="entry project-entry">
-        <div class="entry-main">
-          <a href="projects/agentic-rag.html" class="proj-link"><strong><span class="ko">윤리적인 다국어 LLM 활용을 위한 Context 기반 탈옥 가드레일 구축</span><span class="en">Context-Based Jailbreak Guardrails for Ethical Multilingual LLM Use</span></strong></a>
-          <div class="entry-role ko">
-            한국연구재단 우수신진연구(과학기술정보통신부) · 참여연구원
-          </div>
-          <div class="entry-role en">
-            National Research Foundation of Korea (MSIT) · Participating researcher
-          </div>
-          <p class="entry-summary ko">다국어 유해·무해 데이터와 문맥 기반 평가를 바탕으로 화이트박스·블랙박스 탈옥 공격 및 가드레일을 연구.
-            SlotGCG(ICLR 2026)의 VSS 실험·평가에 기여했으며, 관련 개인 연구를 도구 사용 LLM Agent의 안전성으로 확장.</p>
-          <p class="entry-summary en">Research on multilingual safety data, context-aware evaluation, white-box and black-box jailbreaks, and guardrails.
-            Contributed to VSS experiments and evaluation for SlotGCG (ICLR 2026), with related individual research extending to tool-using agent safety.</p>
-        </div>
-        <div class="entry-date">2025.09 – 2027.08<small><span class="ko">종료 예정</span><span class="en">Expected end</span></small></div>
-      </div>
-      <div class="entry project-entry">
-        <div class="entry-main">
-          <a href="projects/kma.html" class="proj-link"><strong><span class="ko">인공지능 기반 표면온도(지표면, 해수면) 초해상화 기술 개발</span><span class="en">Development of AI-Based Super-Resolution for Land and Sea Surface Temperature</span></strong></a>
-          <div class="entry-role ko">
-            한국기상산업기술원(기상청) · 참여연구원
-          </div>
-          <div class="entry-role en">
-            Korea Meteorological Institute (KMI) / KMA · Participating researcher
-          </div>
-          <p class="entry-summary ko">GK2A·GK2B 위성 데이터를 활용한 초해상화와 지상 관측 기반 Difference Learning 보정.
-            40만 건 이상의 데이터 전처리 및 차이학습 구조 제안에 기여. 2km → 250m 해상도 향상과 1차년도 RMSE 3K 이하 목표 달성.</p>
-          <p class="entry-summary en">Guided super-resolution using GK2A/GK2B data, calibrated against ground observations through difference learning.
-            Contributed preprocessing of 400,000+ records and the calibration design; achieved 2km → 250m resolution and the year-one RMSE target of ≤3K.</p>
-        </div>
-        <div class="entry-date">2025.04 – 2027.08<small><span class="ko">종료 예정</span><span class="en">Expected end</span></small></div>
-      </div>
-      <h3 class="project-group-title"><span class="ko">산학·개발 프로젝트</span><span class="en">Industry &amp; Development Projects</span></h3>
-      <div class="entry project-entry">
-        <div class="entry-main">
-          <a href="projects/v-art.html" class="proj-link"><strong><span class="ko">가상현실 크로스플랫폼 미술관 V-ART</span><span class="en">V-ART: Cross-Platform Virtual Reality Art Museum</span></strong></a>
-          <div class="entry-role ko">
-            동국대학교 종합설계 프로젝트 / ㈜요요인터렉티브 · 데이터베이스 구축 및 서버 개발
-          </div>
-          <div class="entry-role en">
-            Dongguk University capstone / YOYO Interactive · Database and server development
-          </div>
-          <p class="entry-summary ko">작품 이미지·메타데이터를 벡터화하고, Semantic Search와 LLM 기반 설명 생성을 연결한 AI 도슨트 구현.
-            VR 클라이언트와 AI 서버 간 응답 지연을 고려해 RAG 데이터베이스를 구축한 10개월 산학 프로젝트.</p>
-          <p class="entry-summary en">Built an AI docent using artwork image/metadata embeddings, semantic retrieval, and LLM-generated explanations.
-            Developed a RAG database with VR client–AI server latency in mind during a ten-month industry–university project.</p>
-        </div>
-        <div class="entry-date">2024.09 – 2025.06</div>
-      </div>
-      <div class="entry project-entry">
-        <div class="entry-main">
-          <a href="projects/enc.html" class="proj-link"><strong><span class="ko">‘루크온’ E-N-C 기반 위험 대응 및 안심 캠퍼스 구축 시스템</span><span class="en">E-N-C Campus Risk Response and Safety System</span></strong></a>
-          <div class="entry-role ko">
-            동국대학교 AI융합대학 해커톤 ICONICTHON(아코톤) · 인프라 구축 및 프론트엔드 개발
-          </div>
-          <div class="entry-role en">
-            ICONICTHON Hackathon, College of AI Convergence, Dongguk University · Infrastructure and frontend development
-          </div>
-          <p class="entry-summary ko">IoT·Wi-Fi·사용자 참여 데이터를 통합하여 실시간 밀집도 분석, 위험 구역 탐지, 모바일 신고 기능을 구현.
-            실제 캠퍼스 테스트베드 데이터를 활용했으며 <strong>2024년 해커톤 ICONICTHON(아코톤) 대상</strong> 수상.</p>
-          <p class="entry-summary en">Integrated IoT, Wi-Fi, and user-submitted data for crowd-density analysis, risk detection, and mobile incident reporting.
-            Used real campus testbed data and received the <strong>ICONICTHON 2024 Hackathon Grand Prize</strong>.</p>
-        </div>
-        <div class="entry-date">2024.11</div>
-      </div>
-      <div class="entry project-entry">
-        <div class="entry-main">
-          <a href="projects/safe-companion.html" class="proj-link"><strong><span class="ko">시각장애인을 위한 보안관 안심 동행 및 장애인 편의시설 안내서비스</span><span class="en">Safe Companion and Accessible Facility Guide for People with Visual Impairments</span></strong></a>
-          <div class="entry-role ko">미래내일 일경험 사업(고용노동부) / ㈜씨티아이앤씨 · 디자인 및 프론트엔드 개발</div>
-          <div class="entry-role en">Ministry of Employment and Labor work experience program / 씨티아이앤씨 · Design and frontend development</div>
-          <p class="entry-summary ko">공공데이터와 GPS를 결합한 실시간 위험 구역 알림 및 이동 지원 서비스.
-            TTS와 온디바이스 음성인식을 연결해 음성으로 조작 가능한 사용자 화면을 구현.</p>
-          <p class="entry-summary en">Combined public data and GPS for context-aware risk alerts and mobility assistance.
-            Implemented voice-operated interfaces using text-to-speech and on-device speech recognition.</p>
-        </div>
-        <div class="entry-date">2024.08 – 2024.09</div>
-      </div>
-    </section>
-
+    <div class="background-grid">
     <section id="education">
       <h2><span class="ko">학력</span><span class="en">Education</span></h2>
       <div class="entry">
@@ -410,8 +421,12 @@
       </div>
     </section>
 
-    <section id="contact">
+    </div>
+
+    <section id="contact" class="contact-section">
       <h2><span class="ko">연락처</span><span class="en">Contact</span></h2>
+      <p class="ko">연구 협업이나 논의는 언제든 환영합니다. 이메일로 편하게 연락 주세요.</p>
+      <p class="en">I am always open to research collaborations and discussions. Feel free to reach out.</p>
       <p>
         <strong><span class="ko">이메일</span><span class="en">Email</span>:</strong>
         <a href="mailto:yslee0005@dgu.ac.kr">yslee0005@dgu.ac.kr</a>
@@ -426,6 +441,11 @@
         Dongguk University, 30 Pildong-ro 1-gil, Jung-gu, Seoul 04620, Republic of Korea<br>
         <span style="color: var(--muted); font-size: 0.92rem;">서울특별시 중구 필동로1길 30 동국대학교 신공학관 5112호</span>
       </p>
+      <p class="contact-socials">
+        <a href="https://github.com/yslmoment" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/yunseok-lee-b6945a385/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/yslmoment/" target="_blank" rel="noopener">Instagram</a>
+      </p>
     </section>
 
     <footer>
@@ -434,5 +454,6 @@
   </main>
 
   <script src="js/i18n.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

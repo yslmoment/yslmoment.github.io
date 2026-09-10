@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="ko" data-lang="ko">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>윤리적인 다국어 LLM 활용을 위한 Context 기반 탈옥 가드레일 구축 — Yunseok Lee 이윤석</title>
-  <meta name="description" content="한국연구재단 우수신진연구: 다국어 데이터·평가, 화이트박스·블랙박스 탈옥 공격 분석, Context 기반 가드레일 연구. SlotGCG와 관련 LLM Agent 안전성 연구 소개." />
+  <title>Context-Based Jailbreak Guardrails for Ethical Multilingual LLM Use — Yunseok Lee</title>
+  <meta name="description" content="Multilingual LLM safety evaluation, jailbreak analysis, and context-based guardrails. Contributions to SlotGCG (ICLR 2026) and follow-up agent safety research accepted to EMNLP 2026." />
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem('lang') || 'ko';
+        var saved = localStorage.getItem('lang') === 'ko' ? 'ko' : 'en';
         document.documentElement.setAttribute('data-lang', saved);
         document.documentElement.setAttribute('lang', saved);
       } catch (e) {}
@@ -142,44 +142,57 @@
         과제에 <strong>참여연구원</strong>으로 참여하며 LLM 안전성 평가, 공격 분석, 방어 연구를 경험했습니다.
         SlotGCG에서는 공동저자로서 <strong>VSS 기반 평가·분석 및 논문 제출 과정 지원</strong>에 기여했습니다.
         이 경험을 바탕으로 단일 응답뿐 아니라 도구 사용과 행동 실행까지 포함하는
-        <strong>안전한 LLM Agent</strong>를 개인 연구 주제로 확장했습니다.
+        <strong>LLM Agent의 안전성</strong>을 후속 연구로 발전시켰고,
+        그 결과인 <em>Will the User Ever Know?</em>에 <strong>주저자</strong>로 참여하여 <strong>EMNLP 2026 메인 컨퍼런스</strong> 게재 승인을 받았습니다.
       </p>
       <p class="en">
         As a <strong>participating researcher</strong>, I gained experience across LLM safety evaluation,
         attack analysis, and defense research. As a SlotGCG co-author, I contributed to
         <strong>VSS-based evaluation and analysis and supported the paper submission process</strong>.
-        This work informed my individual research direction on safe LLM agents, extending the focus
-        from generated responses to tool use and action execution.
+        This experience led to follow-up research on LLM agent safety, extending the focus
+        from generated responses to tool use and action execution. The resulting paper,
+        <em>Will the User Ever Know?</em>, on which I am a <strong>lead author</strong>, was accepted to the <strong>EMNLP 2026 Main Conference</strong>.
       </p>
     </section>
 
-    <section>
-      <h2><span class="ko">관련 연구 확장: 도구 사용 Agent의 안전성</span><span class="en">Related Research Extension: Tool-Using Agent Safety</span></h2>
+    <section id="emnlp-research">
+      <h2><span class="ko">후속 연구 성과: EMNLP 2026 · ICoA</span><span class="en">Follow-up Research Outcome: EMNLP 2026 · ICoA</span></h2>
       <p class="ko">
-        후속 개인 연구에서는 <strong>간접 프롬프트 주입(Indirect Prompt Injection, IPI)</strong>을 다룹니다.
-        외부 문서나 검색 결과의 악의적 지시를 agent가 신뢰할 경우, 최종 답변뿐 아니라 도구·API를 통한 행동까지
-        공격자의 의도에 영향을 받을 수 있습니다. 공격 방어와 정상적인 작업 수행 능력을 함께 평가하는 것이 핵심 과제입니다.
-        아래 논문은 이 문제의식에서 이어진 관련 연구이며, 과제의 연차별 계획과 구분하여 소개합니다.
+        도구 사용 Agent의 <strong>간접 프롬프트 주입(Indirect Prompt Injection, IPI)</strong>을 다룬 후속 연구는
+        <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</em></a>
+        논문으로 이어졌으며, <strong>EMNLP 2026 메인 컨퍼런스</strong>에 게재 승인되었습니다.
+        아래는 이 논문의 핵심 문제와 연구 성과입니다.
       </p>
       <p class="en">
-        My follow-up individual research focuses on <strong>Indirect Prompt Injection (IPI)</strong>.
-        If an agent treats malicious instructions in external documents or search results
-        as authoritative, those instructions can influence its tool and API actions as well as its final response.
-        A key challenge is evaluating defenses alongside legitimate task performance.
-        The publications below extend this research direction and are presented separately from the funded project's annual plan.
+        The follow-up research on <strong>Indirect Prompt Injection (IPI)</strong> in tool-using agents resulted in
+        <a href="https://arxiv.org/abs/2608.30362" target="_blank" rel="noopener"><em>Will the User Ever Know? Covert Indirect Prompt Injection Attacks on Tool-Using LLM Agents</em></a>,
+        accepted to the <strong>EMNLP 2026 Main Conference</strong>.
+        The research question and contributions of this paper are summarized below.
+      </p>
+      <p class="ko">
+        <strong>핵심 문제:</strong> 외부 데이터의 악의적 지시로 Agent가 원치 않는 도구·API 동작을 수행하더라도,
+        최종 응답이 정상적인 작업 결과만 보여주면 사용자는 공격을 알아차리기 어렵습니다.
+        이 논문은 공격의 성공 여부뿐 아니라 <strong>성공한 공격이 사용자에게 드러나는지</strong>를 함께 평가합니다.
+      </p>
+      <p class="en">
+        <strong>Research question:</strong> An agent may execute unwanted tool or API actions after following malicious instructions in external data,
+        yet show only a normal task result in its final response. The paper evaluates not only whether an attack succeeds,
+        but also <strong>whether the successful attack is revealed to the user</strong>.
       </p>
       <figure class="project-figure">
-        <img src="../images/projects/ipi-overview.png" alt="Indirect Prompt Injection threat model" loading="lazy" />
-        <figcaption><span class="ko">IPI 위협 모델 — 외부 데이터에 삽입된 악의적 지시를 agent가 따를 경우, 도구·API를 통해 원치 않는 행동이 발생할 수 있다.</span><span class="en">IPI threat model — if an agent follows malicious instructions embedded in external data, its tools and APIs may be used for unwanted actions.</span></figcaption>
+        <a href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener"><img src="../images/publications/icoa-overview.png" alt="ICoA: overt and covert attacks compared through agent actions and user-visible responses" width="1293" height="431" loading="lazy" /></a>
+        <figcaption><span class="ko">EMNLP 2026 논문의 overt/covert 공격 비교 — 동일하게 공격이 성공해도, 최종 응답에 공격 수행이 드러나는지는 다를 수 있습니다.</span><span class="en">Overt versus covert attacks in the EMNLP 2026 paper: successful attacks can differ in whether the final response reveals the unwanted action.</span></figcaption>
       </figure>
       <ul class="ko">
-        <li><strong>ICML 2026 FAGEN Workshop — 주저자:</strong> 도구를 사용하는 LLM agent를 대상으로 사용자가 알아차리기 어려운 은밀한 간접 프롬프트 주입을 연구했습니다.</li>
-        <li><strong>EMNLP 2026 Main Conference — 주저자:</strong> 공격 성공이 최종 응답에 드러나는지를 구분하는 CSR·OSR 지표와 <a href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener">ICoA</a> 공격을 제안했습니다. AgentDojo의 네 대상 모델에서 가장 강한 기준선 대비 <strong>CSR 3.79–12.01%p 향상</strong>을 보고했습니다.</li>
+        <li><strong>평가 지표:</strong> 공격 성공이 최종 응답에 드러나는지를 구분하는 <strong>CSR·OSR</strong> 지표를 제안했습니다.</li>
+        <li><strong>공격 방법 및 실험:</strong> <a href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener">ICoA</a> 공격을 제안하고, AgentDojo의 네 대상 모델에서 가장 강한 기준선 대비 <strong>CSR 3.79–12.01%p 향상</strong>을 보고했습니다.</li>
       </ul>
       <ul class="en">
-        <li><strong>ICML 2026 FAGEN Workshop — lead author:</strong> Studied covert indirect prompt injection on tool-using LLM agents, focusing on attacks that can be difficult for users to notice.</li>
-        <li><strong>EMNLP 2026 Main Conference — lead author:</strong> Introduced CSR and OSR to distinguish covert and overt attack successes, and proposed <a href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener">ICoA</a>. The study reports a <strong>3.79–12.01 percentage-point CSR improvement</strong> over the strongest baseline across four target models on AgentDojo.</li>
+        <li><strong>Evaluation metrics:</strong> Introduced <strong>CSR and OSR</strong> to distinguish covert and overt attack successes based on what the final response reveals.</li>
+        <li><strong>Attack method and experiments:</strong> Proposed <a href="https://yslmoment.github.io/ICoA/" target="_blank" rel="noopener">ICoA</a> and reported a <strong>3.79–12.01 percentage-point CSR improvement</strong> over the strongest baseline across four target models on AgentDojo.</li>
       </ul>
+      <p class="ko"><strong>관련 워크숍 논문:</strong> <em>What Did You Do Behind My Back?!</em>에서도 은밀한 간접 프롬프트 주입을 연구했으며, 주저자로 참여한 이 논문은 <strong>ICML 2026 FAGEN Workshop</strong>에 게재 승인되었습니다.</p>
+      <p class="en"><strong>Related workshop paper:</strong> <em>What Did You Do Behind My Back?!</em> also studied covert indirect prompt injection. I am a lead author of this paper, accepted to the <strong>ICML 2026 FAGEN Workshop</strong>.</p>
     </section>
 
     <section>
