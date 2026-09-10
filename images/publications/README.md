@@ -7,5 +7,10 @@
   Downloaded unchanged; display with `object-fit: contain` so neither comparison
   panel is cropped.
 
-The FAGEN workshop entry uses an HTML text preview, not an attributed research
-figure. Its original paper figure was not available for verification.
+- `fagen-poster.png`: full-page preview of the author's ICML 2026 FAGEN poster,
+  https://damilab.github.io/images/publications/pdf/covert-ipi-fagen-icml2026-poster.pdf.
+  Associated paper: *What Did You Do Behind My Back?! Covert Indirect Prompt
+  Injection on Tool-Using LLM Agents*. Rendered from page 1 with PyMuPDF at
+  805 × 1200 pixels, without cropping or altering the poster. Display with
+  `object-fit: contain`; both the thumbnail and the Poster PDF link open the
+  original PDF for readable detail.

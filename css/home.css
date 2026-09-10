@@ -212,9 +212,7 @@
 .home .pub-figure:hover { border-color: #9bb8dd; text-decoration: none; }
 .home .pub-figure img { display: block; width: 100%; max-height: 130px; height: auto; object-fit: contain; }
 .home .pub-figure > span { font-size: 10px; }
-.home .pub-figure-text { align-items: flex-start; padding: 18px; background: #f4f7fc; }
-.home .pub-figure-text .paper-kicker { font-size: 9px; letter-spacing: 0.06em; color: var(--link); }
-.home .pub-figure-text strong { font-size: 19px; font-weight: 600; line-height: 1.3; letter-spacing: -0.035em; color: #284e80; }
+.home .pub-figure.pub-figure-poster img { max-height: 220px; }
 .home .pub-body { min-width: 0; font-size: 13px; }
 .home .pub-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
 .home .pub-tag { font-size: 10px; padding: 2px 7px; font-family: inherit; border-radius: 3px; }
@@ -311,7 +309,6 @@
   .home .pub { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 22px 0; }
   .home .pub-figure { min-height: 130px; max-width: 360px; padding: 14px; justify-self: start; }
   .home .pub-figure img { max-height: 150px; }
-  .home .pub-figure-text { min-height: 140px; }
   .home .pub-title { font-size: 15px; }
   .home .pub-links > a, .home .pub-bibtex summary { padding: 6px 9px; }
   .home .entry { grid-template-columns: 1fr; gap: 6px; }
