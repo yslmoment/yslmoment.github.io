@@ -253,6 +253,30 @@
 .home .entry-main { min-width: 0; font-size: 14px; }
 .home .entry-date { font-size: 11px; color: var(--muted); line-height: 2.15; }
 .home .entry-role { font-size: 12px; line-height: 1.7; margin-top: 5px; }
+.home .project-entry {
+  grid-template-columns: 224px minmax(0, 1fr) auto;
+  grid-template-areas: "thumb main date";
+  gap: 28px;
+  padding: 22px 0;
+}
+.home .project-thumb {
+  grid-area: thumb;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  transition: border-color 150ms ease;
+}
+.home .project-thumb:hover { border-color: #9bb8dd; text-decoration: none; }
+.home .project-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.home .project-thumb-contain img { object-fit: contain; padding: 8px; }
+.home .project-thumb-duo { display: flex; justify-content: center; gap: 8px; padding: 8px 22px; }
+.home .project-thumb-duo img { width: auto; max-width: calc(50% - 4px); height: 100%; object-fit: contain; }
+.home .project-entry .entry-main { grid-area: main; }
+.home .project-entry .entry-date { grid-area: date; }
 .home .project-entry .proj-link { font-size: 15px; line-height: 1.55; }
 .home .project-entry .entry-summary { font-size: 12px; line-height: 1.85; margin-top: 8px; }
 .home .project-entry .entry-date small { font-size: 10px; line-height: 1.5; }
@@ -273,6 +297,7 @@
   .home h1 { font-size: 36px; }
   .home h1 .kr { font-size: 20px; }
   .home .pub { grid-template-columns: 192px minmax(0, 1fr); gap: 22px; }
+  .home .project-entry { grid-template-columns: 192px minmax(0, 1fr) auto; gap: 22px; }
 }
 
 @media (max-width: 760px) {
@@ -290,6 +315,11 @@
   .home .hero-bio { font-size: 13px; }
   .home .background-grid { gap: 24px; }
   .home .entry { gap: 16px; }
+  .home .project-entry {
+    grid-template-columns: 192px minmax(0, 1fr);
+    grid-template-areas: "thumb date" "thumb main";
+    gap: 5px 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -319,7 +349,12 @@
   .home .pub-title { font-size: 15px; }
   .home .pub-links > a, .home .pub-bibtex summary { padding: 6px 9px; }
   .home .entry { grid-template-columns: 1fr; gap: 6px; }
-  .home .project-entry .entry-date { grid-row: 1; }
+  .home .project-entry {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "thumb" "date" "main";
+    gap: 9px;
+  }
+  .home .project-thumb { width: min(100%, 360px); }
   .home .project-entry .entry-date small { display: inline; margin-left: 7px; }
   .home .project-entry .proj-link { font-size: 14px; }
   .home .background-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
