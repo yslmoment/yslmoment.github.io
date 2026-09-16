@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI-Based Super-Resolution for Land and Sea Surface Temperature — Yunseok Lee</title>
-  <meta name="description" content="AI-based land and sea surface temperature super-resolution using GK2A/GK2B data, from 2km to 250m, with ground-observation calibration through difference learning." />
+  <title>AI Models for All-Sky Climate Data Generation and Super-Resolution — Yunseok Lee</title>
+  <meta name="description" content="KMA-supported research on all-sky climate-data generation and super-resolution using GK2A/GK2B data, missing-value interpolation, and ground-observation calibration." />
   <script>
     (function () {
       try {
@@ -34,12 +34,12 @@
     <header class="project-header">
       <p class="project-meta">
         <span class="tag">PROJECT</span>
-        2025.04 – 2027.08 <span class="ko">(종료 예정)</span><span class="en">(expected)</span>
+        2025.04 – 2027.12 <span class="ko">(전체 과제)</span><span class="en">(full project)</span>
         · <span class="ko">참여연구원</span><span class="en">Participating Researcher</span>
       </p>
       <h1 class="project-title">
-        <span class="ko">인공지능 기반 표면온도(지표면, 해수면) 초해상화 기술 개발</span>
-        <span class="en">Development of AI-Based Super-Resolution for Land and Sea Surface Temperature</span>
+        <span class="ko">전천(All-sky) 기후자료 산출 및 초해상화 인공지능 모델 개발</span>
+        <span class="en">AI Models for All-Sky Climate Data Generation and Super-Resolution</span>
       </h1>
       <p class="project-subtitle ko">위성 표면온도를 2km에서 250m로 초해상화하고, 지상 관측과의 차이를 보정하며 구름으로 인한 결측치를 복원하는 다년간 연구 과제.</p>
       <p class="project-subtitle en">A multi-year project combining 2km-to-250m satellite surface-temperature super-resolution, calibration against ground observations, and interpolation of cloud-induced missing values.</p>
@@ -49,8 +49,8 @@
       <h2><span class="ko">개요</span><span class="en">Overview</span></h2>
       <dl class="project-facts">
         <div>
-          <dt><span class="ko">상위 과제</span><span class="en">Parent project</span></dt>
-          <dd><span class="ko">위성기반 극한기후·기후변화 감시 기술개발</span><span class="en">Development of Satellite-Based Monitoring Technologies for Climate Extremes and Climate Change</span></dd>
+          <dt><span class="ko">담당 세부 연구</span><span class="en">Research focus</span></dt>
+          <dd><span class="ko">인공지능 기반 표면온도(지표면·해수면) 초해상화 기술 개발</span><span class="en">AI-based super-resolution for land and sea surface temperature</span></dd>
         </div>
         <div>
           <dt><span class="ko">주관</span><span class="en">Agency</span></dt>
@@ -61,12 +61,20 @@
           <dd><span class="ko">참여연구원 · 동국대학교 DAMILAB</span><span class="en">Participating Researcher · DAMILAB, Dongguk University</span></dd>
         </div>
         <div>
-          <dt><span class="ko">참여 기간</span><span class="en">Participation</span></dt>
+          <dt><span class="ko">전체 과제 기간</span><span class="en">Project period</span></dt>
+          <dd>2025.04 – 2027.12</dd>
+        </div>
+        <div>
+          <dt><span class="ko">참여 기간</span><span class="en">My participation</span></dt>
           <dd>2025.04 – 2027.08 <span class="ko">(종료 예정)</span><span class="en">(expected completion)</span></dd>
         </div>
         <div>
           <dt><span class="ko">핵심 기술</span><span class="en">Methods</span></dt>
           <dd>GDSR · DCTRRDBNet · Difference Learning · LightGBM</dd>
+        </div>
+        <div>
+          <dt><span class="ko">공식 페이지</span><span class="en">Official page</span></dt>
+          <dd><a href="https://damilab.github.io/projects/cma_2025/" target="_blank" rel="noopener">DAMILAB project page ↗</a></dd>
         </div>
       </dl>
       <p class="ko">
@@ -109,8 +117,8 @@
       <h2><span class="ko">접근 방법</span><span class="en">Approach</span></h2>
 
       <figure class="project-figure">
-        <img src="../images/projects/kma-gdsr-architecture.jpeg" alt="Year-1 GDSR super-resolution and LightGBM ground-observation calibration workflow" loading="lazy" />
-        <figcaption><span class="ko">1차년도 초해상화·지상 관측 보정 구조. 그림에 표시된 목표 기준: LST RMSE ≤ 3K, SST RMSE ≤ 2K.</span><span class="en">Year-1 super-resolution and ground-observation calibration workflow. Design targets shown in the figure: LST RMSE ≤ 3K and SST RMSE ≤ 2K.</span></figcaption>
+        <a href="https://damilab.github.io/projects/cma_2025/" target="_blank" rel="noopener"><img src="../images/projects/cma-2025-overview.png" alt="Guided super-resolution training and inference followed by validation against ground observation networks" width="1024" height="642" loading="lazy" /></a>
+        <figcaption><span class="ko">초해상화 모델 학습·추론과 지상 관측망 대조 검증까지의 전체 흐름. 출처: DAMILAB 공식 과제 페이지.</span><span class="en">End-to-end flow from guided super-resolution training and inference to validation against ground observation networks. Source: official DAMILAB project page.</span></figcaption>
       </figure>
 
       <p class="ko">
@@ -170,18 +178,18 @@
     <section>
       <h2><span class="ko">연차별 계획 및 진행 상황</span><span class="en">Yearly Plan &amp; Progress</span></h2>
       <ul class="ko">
-        <li><strong>1차년도 · Clear-Sky:</strong> 구름이 없는 조건의 표면온도 초해상화와 지상 관측 보정. 해상도 개선 및 RMSE 목표 달성.</li>
-        <li><strong>2차년도 · Cloud-Sky:</strong> 구름이 있는 조건의 표면온도 초해상화와 결측치 보간. 기초 모델 구현 진행 중.</li>
-        <li><strong>3차년도 · All-Sky:</strong> 전천후 조건의 표면온도 초해상화 및 최적화 프레임워크 개발 예정.</li>
+        <li><strong>1차년도 · 기반 구축:</strong> 청천 산출물 현황을 분석하고 서리·지표면온도·안개 산출 및 초해상화 기반 모델을 설계합니다.</li>
+        <li><strong>2차년도 · 개선 및 최적화:</strong> 운량·지상온도·자외선지수 산출 알고리즘과 지표면·해수면 온도 결측 보간 모델을 개발합니다.</li>
+        <li><strong>3차년도 · 고도화 및 모듈화:</strong> 모델별 불확실성을 분석·보정하고, 위성센터 기후자료 재생산 체계와 연동해 실시간 산출 시스템 프로토타입을 개발합니다.</li>
       </ul>
       <ul class="en">
-        <li><strong>Year 1 · Clear-Sky:</strong> Surface-temperature super-resolution and calibration under cloud-free conditions. Resolution and RMSE objectives achieved.</li>
-        <li><strong>Year 2 · Cloud-Sky:</strong> Surface-temperature super-resolution and gap interpolation under cloudy conditions. Baseline implementation in progress.</li>
-        <li><strong>Year 3 · All-Sky:</strong> Planned development of surface-temperature super-resolution and an optimization framework across sky conditions.</li>
+        <li><strong>Year 1 · Foundations:</strong> Analyze clear-sky products and design baseline derivation and super-resolution models for frost, land surface temperature, and fog.</li>
+        <li><strong>Year 2 · Improvement and optimization:</strong> Develop derivation algorithms for cloud amount, surface temperature, and UV index, alongside gap-filling models for land and sea surface temperature.</li>
+        <li><strong>Year 3 · Advancement and modularization:</strong> Analyze and correct model uncertainty, connect with the satellite center’s climate-data reprocessing workflow, and build a real-time production prototype.</li>
       </ul>
       <figure class="project-figure">
-        <img src="../images/projects/kma-pipeline.jpeg" alt="Planned cloud-gap interpolation workflow combining super-resolution, spatial-temporal interpolation, and difference learning" loading="lazy" />
-        <figcaption><span class="ko">구름 결측치 보간을 포함하는 후속 파이프라인 계획: 초해상화 → 시·공간 정보를 이용한 보간 → 지상 관측 기반 차이학습. 보간 단계는 구현 중이며, 그림의 LST ≤ 4K·SST ≤ 3K는 목표값입니다.</span><span class="en">Planned extension: super-resolution → interpolation using spatial and temporal context → difference learning against ground observations. Interpolation is under implementation; the figure's LST ≤ 4K and SST ≤ 3K are targets.</span></figcaption>
+        <a href="https://damilab.github.io/projects/cma_2025/" target="_blank" rel="noopener"><img src="../images/projects/cma-2025-roadmap.png" alt="Three-year roadmap, outputs, and evaluation targets for the all-sky climate data project" width="1024" height="759" loading="lazy" /></a>
+        <figcaption><span class="ko">2025–2027년 연구 목표, 세부 내용, 성과물과 평가지표. 출처: DAMILAB 공식 과제 페이지.</span><span class="en">Research goals, activities, outputs, and evaluation metrics for 2025–2027. Source: official DAMILAB project page.</span></figcaption>
       </figure>
     </section>
 
