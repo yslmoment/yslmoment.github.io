@@ -8,7 +8,7 @@ and preview links open the complete paper, poster, or project page.
 - `icoa-overview.png`: original teaser from the author's ICoA project page,
   https://yslmoment.github.io/ICoA/teaser.png (1293 × 431 pixels).
   Associated paper: *Will the User Ever Know? Covert Indirect Prompt Injection
-  Attacks on Tool-Using LLM Agents*, EMNLP 2026 Main Conference.
+  Attacks on Tool-Using LLM Agents*, EMNLP 2026 Main Conference (Oral).
   Downloaded unchanged; display with `object-fit: contain` so neither comparison
   panel is cropped.
 
