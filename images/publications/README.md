@@ -5,6 +5,16 @@ Wide figures use `object-fit: contain`; the FAGEN poster and golf-swing figure
 use a display-only `object-fit: cover` crop. All source images remain unchanged,
 and preview links open the complete paper, poster, or project page.
 
+- `plcworld-figure3.png`: Figure 3 (representative executions by suite and
+  difficulty) from *PLCWorld: Benchmarking LLM-Generated PLC Programs in
+  Closed-Loop Plant Simulation*, Yunji Kim, Yunseok Lee, Hyunwoo Seo,
+  Jaerim Choi, and Woojin Lee, arXiv:2610.02982 (2026).
+  Source: https://arxiv.org/html/2610.02982v1/figure3.png.
+  Downloaded unchanged (2019 × 753 pixels). Display with `object-fit: contain`
+  so both task suites and all three difficulty levels remain visible.
+  Project page: https://yunji0516.github.io/PLCWorld/.
+  Licensed under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/.
+
 - `icoa-overview.png`: original teaser from the author's ICoA project page,
   https://yslmoment.github.io/ICoA/teaser.png (1293 × 431 pixels).
   Associated paper: *Will the User Ever Know? Covert Indirect Prompt Injection
