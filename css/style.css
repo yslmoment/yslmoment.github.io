@@ -226,6 +226,12 @@ em { font-style: italic; }
 .news-body { flex: 1 1 auto; }
 
 /* Publications */
+.pub-author-note {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 .pub {
   display: grid;
   grid-template-columns: 6.5rem 1fr;
@@ -267,6 +273,10 @@ em { font-style: italic; }
 .pub-authors .me {
   font-weight: 700;
   text-decoration: underline;
+}
+
+.pub-authors sup {
+  line-height: 0;
 }
 
 .pub-venue {
